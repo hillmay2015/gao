@@ -24,7 +24,7 @@
         <p class="ft qEnglish"></p>
         <div class="bj2">
             <img class="loginlogo" src="__PUBLIC__/lanrenjiekuan//loginlogo.png">
-            <form id="loginform" method="post" action="index.php?&g=Admin&m=Index&a=login">
+            <form id="loginform" method="post" action="/m.php/Admin/Index/login">
                 <div class="qinfo-logo">
                     <table>
                         <tbody><tr>
