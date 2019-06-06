@@ -26,7 +26,7 @@
                         <tbody><tr>
                             <td width="130" class="textr">账号&nbsp;</td>
                             <td class="textl">
-                                <input type="text" name="username" id="username" data-options="required:true" class="qiput" placeholder="请输入登录账号">
+                                <input type="text" name="username" id="name" data-options="required:true" class="qiput" placeholder="请输入登录账号">
                             </td>
                         </tr>
                         <tr>
@@ -62,7 +62,7 @@
                            </tr> -->
                         <tr>
                             <td class="textr">&nbsp;</td>
-                            <td class="textl"><button class="qlogo-btn"  type="submit" lay-submit="" lay-filter="formSubmit">登  录</button>
+                            <td class="textl"><button class="qlogo-btn"  type="submit" lay-submit="" lay-filter="formSubmit" id="btn">登  录</button>
                             </td>
                         </tr>
                         </tbody></table>
@@ -72,8 +72,44 @@
     </div>
 
 </div>
-<!-- <script>
-    record();
-</script> -->
 
 </body></html>
+<script>
+    function tishi(str){
+        $('#messageBox').text(str);
+        $('#messageBox').show();
+        setTimeout(function(){
+            $('#messageBox').hide();
+        },2200);
+    }
+    $("#btn").click(function() {
+        alert('aaaa');
+        var username=$('#name').val();
+        var password=$('#password').val();
+
+
+        if (password.length==0) {
+            tishi('请输入密码');
+            return false;
+        }
+        $.post(
+            "<?php echo C('cfg_app'); ?>/Admin/Index/login",
+            {
+                username:username,
+                password:password
+            },
+            function (data,state){
+                if(state != "success"){
+                    tishi('网络请求失败,请重试');
+                    return false;
+                }else if(data.status != 1){
+                    tishi('帐号或密码错误');
+                }else{
+                    //登录成功
+                    window.location.href = data.url;
+                }
+            }
+        );
+    });
+
+</script>

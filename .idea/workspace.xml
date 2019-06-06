@@ -38,13 +38,13 @@
       <file leaf-file-name="index_index2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Home/index_index2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="78" column="14" lean-forward="false" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+            <state relative-caret-position="404">
+              <caret line="64" column="132" lean-forward="false" selection-start-line="64" selection-start-column="132" selection-end-line="64" selection-end-column="132" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#1122#1128#0" expanded="true" />
-                <element signature="e#1469#1475#0" expanded="true" />
-                <element signature="e#3715#3721#1" expanded="true" />
+                <element signature="e#1465#1471#0" expanded="true" />
+                <element signature="e#3711#3717#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,8 +53,8 @@
       <file leaf-file-name="Index_index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+            <state relative-caret-position="132">
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -63,13 +63,13 @@
       <file leaf-file-name="index_index1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Home/index_index1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+            <state relative-caret-position="238">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="100" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#1683#1689#0" expanded="true" />
-                <element signature="e#2053#2059#0" expanded="true" />
-                <element signature="e#2819#2825#1" expanded="true" />
+                <element signature="e#1651#1657#0" expanded="true" />
+                <element signature="e#2002#2008#0" expanded="true" />
+                <element signature="e#2768#2774#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,9 +88,11 @@
     <findStrings>
       <find>data['is_super']</find>
       <find>cfg_imgmoban</find>
+      <find>/lanrenjiekuan//</find>
     </findStrings>
     <replaceStrings>
       <replace>is_super</replace>
+      <replace>/lanrenjiekuan/</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -105,8 +107,8 @@
         <option value="$PROJECT_DIR$/App/Tpl/Admin/Public_left.html" />
         <option value="$PROJECT_DIR$/Base/Extend/Library/ORG/Util/Page.class.php" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Admin/UserAction.class.php" />
-        <option value="$PROJECT_DIR$/App/Tpl/Home/index_index1.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Home/IndexAction.class.php" />
+        <option value="$PROJECT_DIR$/App/Tpl/Home/index_index1.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/index_index2.html" />
       </list>
     </option>
@@ -372,16 +374,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1559790376402</updated>
-      <workItem from="1559790379376" duration="8537000" />
+      <workItem from="1559790379376" duration="8907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8537000" />
+    <option name="totallyTimeSpent" value="8907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1368" height="797" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25490198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -390,7 +392,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42709866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -645,27 +647,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/index_index1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1683#1689#0" expanded="true" />
-            <element signature="e#2053#2059#0" expanded="true" />
-            <element signature="e#2819#2825#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/IndexAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
@@ -682,15 +663,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/index_index1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="100" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1651#1657#0" expanded="true" />
+            <element signature="e#2002#2008#0" expanded="true" />
+            <element signature="e#2768#2774#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Tpl/Home/index_index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="78" column="14" lean-forward="false" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+        <state relative-caret-position="404">
+          <caret line="64" column="132" lean-forward="false" selection-start-line="64" selection-start-column="132" selection-end-line="64" selection-end-column="132" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#1122#1128#0" expanded="true" />
-            <element signature="e#1469#1475#0" expanded="true" />
-            <element signature="e#3715#3721#1" expanded="true" />
+            <element signature="e#1465#1471#0" expanded="true" />
+            <element signature="e#3711#3717#1" expanded="true" />
           </folding>
         </state>
       </provider>
