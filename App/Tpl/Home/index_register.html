@@ -52,7 +52,6 @@
         },2200);
     }
     $("#btn").click(function() {
-        alert('aaa');
         var phone=$('#phone').val();
         var username=$('#name').val();
         var password=$('#password').val();
@@ -84,14 +83,12 @@
                 confirm_password:confirm_password
             },
             function (data,state){
-                if(state != "success"){
-                    tishi('网络请求失败,请重试');
-                    return false;
-                }else if(data.status != 1){
-                    tishi('帐号或密码错误');
-                }else{
-                    //注册成功
-                    window.location.href = data.url;
+
+             if(data.status == 0){
+                 //注册失败
+                 tishi(data.info);
+             }else{
+                 window.location.href = data.url;
                 }
             }
         );

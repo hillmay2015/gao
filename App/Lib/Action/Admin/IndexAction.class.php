@@ -145,9 +145,9 @@ class IndexAction extends CommonAction {
         if(IS_POST){
             //添加
             $validate = array(
-                array('username','require','管理员名称不能为空!'),
-                array('username','','管理员名称已经存在！',0,'unique',1),
-                array('password','require','管理员密码不能为空!'),
+                array('username','require','渠道商名称不能为空!'),
+                array('username','','渠道商名称已经存在！',0,'unique',1),
+                array('password','require','渠道商密码不能为空!'),
                 array('password_confirm','password','两次密码输入不一致!',0,'confirm'),
             );
             $Admin->setProperty("_validate",$validate);
@@ -167,13 +167,18 @@ class IndexAction extends CommonAction {
 
             $status = $Admin->add($_POST);
 
-            if(!$status){
 
-                $this->ajaxReturn('注册失败!');
+            if(!$status){
+                $msg['state']=0;
+                $msg['info']='注册失败';
+                $this->ajaxReturn($msg);
+            }else{
+                $msg['state']=1;
+                $msg['url']=C('cfg_app').'/Home/Index/index';
+                $msg['info']='注册成功,请登录';
+                $this->ajaxReturn($msg);
             }
-            $this->ajaxReturn('注册成功!');
-            $this->redirect(C('cfg_app').'/Home/Index/index');
-            exit;
+
         }
     }
 }
