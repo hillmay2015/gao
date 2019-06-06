@@ -1,0 +1,21 @@
+<?php
+return array (
+  'cfg_sitename' => '景信金融11',
+  'cfg_sitetitle' => '景信金融11',
+  'cfg_siteurl' => '景信金融11',
+  'cfg_sitekeywords' => '景信金融11',
+  'cfg_app' => '/m.php',
+  'cfg_siteclosed' => '0',
+  'cfg_imgmoban' => '2',
+  'cfg_bg' => '#408080',
+  'cfg_siteclosemsg' => '景信金融',
+  'cfg_siteicp' => '',
+  'cfg_sitecode' => '',
+  'cfg_smssid' => '',
+  'cfg_smstoken' => '',
+  'cfg_smsname' => '有信金融',
+  'cfg_smsmaxcount' => 'admin',
+  'cfg_wgurl' => 'ZHONG162821.',
+  'cfg_wguser' => '',
+  'cfg_wgpass' => '',
+);

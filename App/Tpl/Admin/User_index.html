@@ -1,0 +1,169 @@
+<h3>
+    {$title}
+</h3>
+<link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
+<div class="filter">
+     <!--<form action="{:U(GROUP_NAME.'/User/index')}" method="post">
+     
+       <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php echo date('Y-m-d');?>" style="height: 32px; font-size:18px"/>
+          <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php echo date('Y-m-d',time()+24*60*60);?>" style="height: 32px; font-size:18px"/>
+        <input name="submit" type="submit" class="layui-btn" value="筛选" />
+     <php>
+                if($adminlogin['gid'] == 1){ </php>  
+                <span class="layui-btn" id="daochu">导出</span> 
+                 <php>}</php> 
+    </form> -->
+</div>
+
+<textarea class="layui-textarea">我的短链接：{$myurl}    
+我得长链接：{$myurl2}</textarea>
+<div id="list">
+        <table width="80%" border="0" cellpadding="8" cellspacing="0" class="layui-table">
+            <tr>
+              
+              
+              
+                <th width="120" align="center">注册时间</th>
+                 <th width="120" align="center">注册数</th>
+                 <th width="120" align="center">申请数</th>
+                  <th width="120" align="center">下款数</th>
+               <th width="120" align="center">下款率</th>
+               <th width="120" align="center">推广人</th>
+               
+            
+
+              
+                <th width="120" align="center">详情</th>
+            </tr>
+            <volist name="list" id="vo">
+                <tr>
+                    
+            
+                    
+                    <td align="center">{$vo.addtime}</td>
+                      <td align="center">{$vo.zhuceshu}</td>
+                       <td align="center">
+                          <?php 
+                            echo floor($vo['zhuceshu']*$vo['shenqLv']/100);
+                          ?>
+
+                       </td>
+                        <td align="center">
+                          <?php 
+                            echo floor($vo['zhuceshu']*$vo['fangkuanLv']/100);
+                          ?>
+                       </td>
+                    
+                     <td align="center"><?php 
+                      $shenqingrenshu = $vo['zhuceshu'];
+                        $xiakuanrenshu = floor($vo['zhuceshu']*$vo['fangkuanLv']/100);
+                       echo round($xiakuanrenshu/$shenqingrenshu*100,2);
+                      ?>%</td>
+                  
+              
+                     <td align="center">{$vo.data_from}</td>
+              
+                 <td align="center">
+                 <!--     <a href="{:U(GROUP_NAME.'/User/index2')}">查看详情</a>  -->
+               
+                       </td>
+                </tr>
+            </volist>
+        </table>
+</div>
+
+<div class="clear"></div>
+<div class="pager">
+    {$page}
+</div>
+</div>
+
+<script>
+    $("#daochu").click(function(){
+        var data_from = $("#data_from").val();
+        var stratdate = $("#stratdate").val();
+        var enddate = $("#enddate").val();
+        if(stratdate == ""){
+             layer.msg("起始时间不能为空");return;
+        }
+         if(enddate == ""){
+             layer.msg("结束时间不能为空");return;
+        }
+         window.location.href = 'index.php?g=Admin&m=User&a=daochu&data_from='+data_from+"&stratdate="+stratdate+"&enddate="+enddate;
+    })
+    $("#allChoose").click(function(){
+        var flag = $("#allChoose").is(':checked');
+        if(!flag){
+            $(":checkbox").removeAttr("checked");//取消全选
+        }else{
+            $(":checkbox").attr("checked","true");
+        }
+    })
+    $("#delall").click(function(){
+        var adIds = "";
+        $(":checkbox:checked").each(function(i){  
+            if(0==i){  
+                adIds = $(this).attr('data');  
+            }else{  
+                adIds += (","+$(this).attr('data'));  
+            }
+            
+        });
+        
+        $.ajax({
+                    url : "index.php?g=Admin&m=User&a=alldel",
+                    type : "post",
+                    data : {adIds:adIds},
+                    success : function(ret) {
+                        if (ret.success) {
+                            //var qq=ret.data.qq;
+                            
+                            layer.msg("成功删除"+ret.msg+"条数据");
+                            setTimeout(function(){
+                                window.location.href = 'index.php?g=Admin&m=User&a=index2';
+                            },1000);
+                            
+                        } else {
+                            layer.msg(ret.msg);
+                            
+                        }
+                    },
+                    error : function() {
+                        layer.msg("提交错误");
+                        
+                    }
+                });
+    })
+    function del(uname,jumpurl){
+        layer.confirm(
+                '确定要删除用户:'+uname+'吗?',
+                function (){
+                    window.location.href = jumpurl;
+                }
+        );
+    }
+    function changepass(uid){
+		layer.prompt({title: '输入新密码，并确认', formType: 1}, function(pass, index){
+			if(pass == '' || pass == null){
+				layer.msg('密码不能为空!');
+			}else if(pass.length < 6){
+				layer.msg("密码长度不能小于6位!");
+			}else{
+				$.post(
+					"{:U(GROUP_NAME.'/User/changepass')}",
+					{id:uid,pass:pass},
+					function (data,state){
+						if(state != "success"){
+							layer.msg("网络通讯失败!");
+						}else if(data.status == 1){
+							layer.msg("密码修改成功!");
+							layer.close(index);
+						}else{
+							layer.msg(data.msg);
+						}
+					}
+				);
+			}
+		});
+    }
+</script>

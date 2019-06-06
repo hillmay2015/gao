@@ -1,0 +1,63 @@
+<h3>
+    <a href="javascript:history.go(-1)" class="actionBtn">返回列表</a>
+    {$title}
+</h3>
+<form action="{:U(GROUP_NAME.'/Admin/add')}" method="post">
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tr colspan='3'>
+            <td>身份证正面拍照:
+			<a href="{$fjdata.cardphoto_1}"><img src="{$fjdata.cardphoto_1}" style="width:200;height:300px;"></a>
+				
+				 </td>
+				 <td>
+                <a href="{$fjdata.cardphoto_2}">身份反面：
+				<img src="{$fjdata.cardphoto_2}"  style="width:200;height:300px;">
+				</a>
+				 </td>
+				 <td>
+                <a href="{$fjdata.cardphoto_3}">身份证明手持：
+				<img src="{$fjdata.cardphoto_3}"  style="width:200;height:300px;">
+				</a>
+				
+            </td>
+        </tr>
+		
+		<tr>
+            <td align="right">图片查看</td>
+            <td>
+                <a href="{$fjdata.otherimg}">点击查看</a>
+            </td>
+        </tr>
+		<tr>
+            <td align="right">文件下载</td>
+            <td>
+                <a href="{$fjdata.otherexcel}">点击下载</a>
+            </td>
+        </tr>
+	
+		<tr  colspan='3'>
+            <td align="right">通话记录:
+            
+                <a target="_blank " href="https://tenant.51datakey.com/carrier/mxreport_data?data={$message}&contact=">点击查看</a>
+            </td>
+			<td align="right">号码分析报告:
+			
+                <a target="_blank " href="http://om.51datakey.com/trail/magicwand?customerId=1397&secret=3500b097a116499d92e069ab747470ae">点击查看</a>
+            </td>
+        </tr>
+    	<tr colspan='3'>
+            <td>姓名:
+				{$fjdata.name}
+				
+			</td>
+			<td>
+              {$fjdata.phone_number}
+				 </td>
+				 <td>
+                 {$fjdata.qq}
+				
+            </td>
+        </tr>
+		
+    </table>
+</form>

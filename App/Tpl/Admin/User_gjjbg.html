@@ -1,0 +1,103 @@
+<h3>
+    {$title}
+</h3>
+	<link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
+	<link rel="stylesheet" href="__PUBLIC__/static/libs/font-awesome/css/font-awesome.min.css">
+	
+
+<div class="filter">
+    <form action="{:U(GROUP_NAME.'/User/gjjbg')}" method="post">
+        <input name="keyword" type="text" class="inpMain" placeholder="渠道id" size="20" />
+        <input name="submit" class="btnGray" type="submit" value="筛选" />
+    </form>
+</div>
+
+<div id="list">
+        
+        	
+        	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="layui-table">
+            <tr>
+                <th width="80" align="center">ID</th>
+                <th width="150" align="left">渠道</th>
+                <th width="150" align="left">统计时间</th>
+                <th width="120">注册量</th>
+               <th width="120">备注</th>
+			   <th width="120">操作</th>
+            </tr>
+            <volist name="list" id="vo">
+                <tr>
+                    <td align="center">{$vo.id}</td>
+                    <td>{$vo.qudao_id}</td>
+                    <td>{$vo.create_date}</td>
+                    <td align="center">{$vo.regs}</td>
+                     <td align="center">{$vo.data_label}</td>
+					 <td>
+					 <a href="javascript:beizhu({$vo.id})"><button class="do-action layui-btn layui-btn-small do-edit" >备注</button></a>
+					 </td>
+                </tr>
+            </volist>
+           </table>
+            
+			
+        
+</div>
+<div class="clear"></div>
+<div class="pager">
+    {$page}
+</div>
+</div>
+
+<div style="display: none;" id="changestatus_div2">
+<br>
+    <div class="layui-form">
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">备注</label>
+				<div class="layui-input-block">
+					<input type="text" name="beizhu" id="beizhu" value=""  placeholder="请输入处理内容" class="layui-input">
+					<input type="hidden" name="id2" id="id2" value="" >
+				</div>
+			</div>
+		
+</div>
+<script>
+function beizhu(oid){
+  		
+    	$("#id2").val(oid);
+		layer.open({
+		  	type: 1,
+		  	skin: 'layui-layer-rim', //加上边框
+		  	area: ['600px', '300px'], //宽高
+		  	content: $("#changestatus_div2").html(),
+		
+			btn: ['修改'],
+			btn1: function (index, layero)
+             {
+                var id = $(layero).find("#id2").val();
+				var data_label = $(layero).find("#beizhu").val();
+				
+				
+				if(id){
+					$.post(
+						"{:U(GROUP_NAME.'/User/changebeizhu?id=')}"+id,
+						{data_label:data_label,id:id},
+						function(data,state){
+							
+							if(data.status == 1){
+								layer.msg("更新成功!");
+							///	setTimeout(function(){
+							//		window.location.href = window.location.href;
+							//	},2000);
+							}else{
+								layer.msg(data.msg);
+							}
+						}
+					);
+				}else{
+					layer.msg("操作错误请刷新在试!");
+				}
+					 }
+		});
+	
+    }
+</script>

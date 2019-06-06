@@ -1,0 +1,224 @@
+<h3>{$title}</h3>
+<link rel="shortcut icon" href="__PUBLIC__/logo.png" />
+<script type="text/javascript">
+    $(function(){ $(".idTabs").idTabs(); });
+</script>
+<div class="idTabs">
+    <ul class="tab">
+        <li><a href="#main">常规设置</a></li>
+         
+       <li><a href="#api">接口设置</a></li> 
+    </ul>
+    <style type="text/css">
+        .yulan{
+
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <div class="items">
+        <form action="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/System/index')}" method="post">
+            <div id="main">
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                    <tr>
+                        <th width="131">名称</th>
+                        <th>内容</th>
+                    </tr> 
+                    <tr>
+                        <td align="right">站点名称</td>
+                        <td>
+                            <input type="text" name="sitename" value="{:C('cfg_sitename')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">站点标题</td>
+                        <td>
+                            <input type="text" name="sitetitle" value="{:C('cfg_sitetitle')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">站点地址</td>
+                        <td>
+                            <input type="text" name="siteurl" value="{:C('cfg_siteurl')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">站点关键字</td>
+                        <td>
+                            <input type="text" name="sitekeywords" value="{:C('cfg_sitekeywords')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                     <tr>
+                        <td align="right">站点入口（谨慎修改）</td>
+                        <td>
+                            <input type="text" name="app" value="{:C('cfg_app')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">是否关闭网站</td>
+                        <td>
+                            <label for="siteclosed_0">
+                                <input type="radio" name="siteclosed" id="siteclosed_0" value="0" <if condition="C('cfg_siteclosed') eq 0">checked</if> >
+                                否
+                            </label>
+                            <label for="siteclosed_1">
+                                <input type="radio" name="siteclosed" id="siteclosed_1" value="1" <if condition="C('cfg_siteclosed') eq 1">checked</if> >
+                                是
+                            </label>
+                        </td>
+                    </tr>
+                      <tr>
+            <td align="right">设置后台模板</td>
+            <td>
+               
+
+                <label>
+                    <input type="radio" name="imgmoban" value="1" <php> if(C("cfg_imgmoban") == 1){echo "checked";}</php>>
+                    模板1<img src="__PUBLIC__/login/demo1.png" class="yulan">
+                    
+                </label>
+                  <label>
+                    <input type="radio" name="imgmoban" value="2" <php> if(C("cfg_imgmoban") == 2){echo "checked";}</php>>
+                    模板2<img src="__PUBLIC__/login/demo2.png" class="yulan">
+                </label>
+                 <label>
+                    <input type="radio" name="imgmoban" value="3" <php> if(C("cfg_imgmoban") == 3){echo "checked";}</php>>
+                    模板3<img src="__PUBLIC__/login/demo3.png" class="yulan">
+                </label>
+              
+            </td>
+            <tr>
+                        <td align="right">登录背景色</td>
+                        <td>
+                           
+        
+            
+                        <input  type="color" name="bg" id="onchange" value="{:C('cfg_bg')}">
+                    </td>
+                </tr>
+        </tr>
+                    <tr>
+                        <td align="right">网站关闭提示</td>
+                        <td>
+                            <textarea name="siteclosemsg" cols="83" rows="8" class="textArea" />{:C('cfg_siteclosemsg')}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">ICP备案证书号</td>
+                        <td>
+                            <input type="text" name="siteicp" value="{:C('cfg_siteicp')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">统计/客服代码调用</td>
+                        <td>
+                            <textarea name="sitecode" cols="83" rows="8" class="textArea" />{:C('cfg_sitecode')}</textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+			
+		
+            <div id="api">
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                    <tr>
+                        <th width="131">名称</th>
+                        <th>内容</th>
+                    </tr>
+                    <tr>
+                        <td align="right">短信账号</td>
+                        <td>
+                            <input type="text" name="smssid" value="{:C('cfg_smssid')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">短信密码</td>
+                        <td>
+                            <input type="text" name="smstoken" value="{:C('cfg_smstoken')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">短信接口签名</td>
+                        <td>
+                            <input type="text" name="smsname" value="{:C('cfg_smsname')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+					<tr>
+                        <td align="right">短信当日获取最大次数</td>
+                        <td>
+                            <input type="text" name="smsmaxcount" value="{:C('cfg_smsmaxcount')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+					 <tr>
+                        <td align="right">网关地址</td>
+                        <td>
+                            <input type="password" name="wgurl" value="{:C('cfg_wgurl')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+					<tr>
+                        <td align="right">网关用户名</td>
+                        <td>
+                            <input type="password" name="wguser" value="{:C('cfg_wguser')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+                     <tr>
+                        <td align="right">网关密码</td>
+                        <td>
+                            <input type="password" name="wgpass" value="{:C('cfg_wgpass')}" size="80" class="inpMain" />
+                        </td>
+                    </tr>
+				 
+                </table>
+            </div>
+
+
+            <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                <tr>
+                    <td width="131"></td>
+                    <td>
+                        <input class="btn" type="submit" value="提交" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+
+<script>
+function uploadImg(hiddenid,imgdiv,obj){
+    var filename = $(obj).val();
+    if(filename != '' && filename != null){
+        isupload = true;
+        var pic = $(obj)[0].files[0];
+        var fd = new FormData();
+        fd.append('imgFile', pic);
+        
+        $.ajax({
+            url:"__PUBLIC__/main/js/kindeditor/php/upload_json.php",
+            type:"post",
+            dataType:'json',
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                if(data && data.error == '0'){
+                    alert("上传成功");
+                    var imgurl = data.url;
+                    $("#"+imgdiv).html('<img style="height: 200px" src="'+imgurl+'">');
+                    $("#"+hiddenid).val(imgurl);
+                    
+                }else{
+                    alert(data.error);
+                }
+            },
+            error:function (){
+                alert(data.error);
+            }
+        });
+        isupload = false;
+    }
+    isupload = false;
+}
+</script>

@@ -1,0 +1,39 @@
+<h3>
+    
+    {$title}
+</h3>
+<form action="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/edit2')}" method="post">
+    <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+        <input type="hidden" name="editId" value="{$data.id}">
+        <tr>
+            <td width="100" align="right">登陆账号</td>
+            <td>
+                <input type="text" value="{$data.username}" name="username" size="40" class="inpMain" disabled="disabled" />
+            </td>
+        </tr>
+		
+     
+        <tr>
+            <td align="right">密码</td>
+            <td>
+                <input type="password" name="password" size="40" class="inpMain" /> 
+            </td>
+        </tr>
+        <tr>
+            <td align="right">确认密码</td>
+            <td>
+                <input type="password" name="password_confirm" size="40" class="inpMain" />
+            </td>
+        </tr>
+       
+
+           
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="submit" class="btn" value="提交" />
+            </td>
+        </tr>
+    </table>
+</form>

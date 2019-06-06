@@ -1,0 +1,415 @@
+<h3>
+    <a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/index')}" class="actionBtn">返回列表</a>
+    {$title}
+</h3>
+<form action="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/edit')}" method="post">
+    <table width="100%" border="0" cellpadding="6" cellspacing="0" class="tableBasic">
+         <input type="hidden" name="editId" value="{$data.id}">
+        <tr>
+            <td width="100" align="right">登陆账号</td>
+            <td>
+                <input type="text" value="{$data.username}" name="username" size="40" class="inpMain" />
+            </td>
+        </tr>
+        
+        
+            <tr>
+            <td align="right">密码</td>
+            <td>
+                <input type="password" name="password" size="40" class="inpMain" /> *如果不修改密码直接留空即可
+            </td>
+        </tr>
+        <tr>
+            <td align="right">确认密码</td>
+            <td>
+                <input type="password" name="password_confirm" size="40" class="inpMain" /> *如果不修改密码直接留空即可
+            </td>
+        </tr>
+      
+                <input type="hidden" name="password_confirm" size="40" class="inpMain" value="123456" />
+         
+        <tr>
+            <td align="right">渠道名称</td>
+            <td>
+                <input type="text" name="name" size="40" class="inpMain" placeholder="" value="{$data.name}" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">手机</td>
+            <td>
+                <input type="text" name="phone" size="40" class="inpMain"  value="{$data.phone}" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">扣量比例</td>
+            <td>
+                <input type="text" name="qq" size="40" class="inpMain"  value="{$data.qq}" />%
+            </td>
+        </tr>
+         <tr>
+            <td align="right">申请率（实名数量）</td>
+            <td>
+                <input type="text" name="shenqLv" size="40" class="inpMain"  value="{$data.shenqLv}"/>%
+            </td>
+        </tr>
+         <tr>
+            <td align="right">申请借款人次</td>
+            <td>
+                <input type="text" name="loanRenci" size="40" class="inpMain"  value="{$data.loanRenci}"/>%
+            </td>
+        </tr>
+           <tr>
+            <td align="right">申请成功人次</td>
+            <td>
+                <input type="text" name="chenggongrenci" size="40" class="inpMain"  value="{$data.chenggongrenci}"/>%
+            </td>
+        </tr>
+         <tr>
+            <td align="right">放款率</td>
+            <td>
+                <input type="text" name="fangkuanLv" size="40" class="inpMain"  value="{$data.fangkuanLv}"/>%
+            </td>
+        </tr>
+            <tr>
+            <td align="right">数据显示权限设置</td>
+            <td>
+                
+                 <label>
+                    <input type="checkbox"  id="date_time">
+                    <input type="hidden" name="date_time" id="date_time11" >
+                    日期
+                </label>
+                 <label>
+                    <input type="checkbox"  id="qudaoname">
+                    <input type="hidden" name="qudaoname" id="qudaoname11">
+                    渠道名
+                </label>
+                 <label>
+                    <input type="checkbox"  id="zhucecount">
+                    <input type="hidden" name="zhucecount" id="zhucecount11">
+                    注册量
+                </label>
+                 <label>
+                    <input type="checkbox"  id="uvcount">
+                    <input type="hidden" name="uvcount" id="uvcount11">
+                    UV量
+                </label>
+                 <label>
+                    <input type="checkbox"  id="shimingcount">
+                    <input type="hidden" name="shimingcount" id="shimingcount11">
+                    实名认证
+                </label>
+                  <label>
+                    <input type="checkbox"  id="loancount">
+                    <input type="hidden" name="loancount" id="loancount11">
+                    申请借款人数
+                </label>
+                 <label>
+                    <input type="checkbox"  id="succcount">
+                    <input type="hidden" name="succcount" id="succcount11">
+                    申请成功人数
+                </label>
+                <label>
+                    <input type="checkbox"  id="loanlv">
+                    <input type="hidden" name="loanlv" id="loanlv11">
+                    借款率%
+                </label>
+                 <label>
+                    <input type="checkbox"  id="tongguolv">
+                    <input type="hidden" name="tongguolv" id="tongguolv11">
+                        通过率%
+                </label>
+                 <label>
+                    <input type="checkbox"  id="caozuo">
+                    <input type="hidden" name="caozuo" id="caozuo11">
+                        操作
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">跳转链接</td>
+            <td>
+               
+
+                <label>
+                    <input type="text" name="url"  size="80" value="{$data.url}" class="inpMain">
+                    
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">权限设置</td>
+            <td>
+                <label>
+                    <if condition ="data['is_super']==1">
+                        <input type="radio" name="gid" value="1"  if($data.gid==1){ checked }>
+                        普通管理员
+                        <input type="radio" name="gid" value="2"  if($data.gid==2){ checked }>
+                        渠道商
+                    </if>
+                    <if condition ="data['is_super']==0">
+                        <input type="radio" name="gid" value="3" if($data.gid==1){ checked }>
+                        推广员
+                    </if>
+                </label>
+            </td>
+        </tr>
+
+        <!-- 超级管理员 编辑渠道商 默认模板为 0-->
+        <if condition ="data['is_super']==1">
+            <input type="hidden" value="0" name="tpl" checked>
+        </if>
+        <!-- 渠道商 编辑推广员 模板需要选择-->
+        <if condition="$data['is_super']==0">
+            <tr>
+                <td align="right">模板风格</td>
+                <td>
+                    <input type="radio" name="tpl" value="1" if($data.tpl==1){ checked }> 风格1
+                    <input type="radio" name="tpl" value="2" if($data.tpl==2){ checked }> 风格2
+                </td>
+            </tr>
+        </if>
+       <td align="right">LOGO</td>
+                        <td>
+                            <div id="list">
+        
+            <label for="file">上传文件:</label>
+            <input type="file" name="file" id="file" onChange="uploadImg('payimg','imgdiv',this);"><br />
+          <div  id="imgdiv">
+            
+              <img style="height: 200px" src="{$data.logourl}">
+              
+        </div>
+        <input type="hidden" id="logourl" name="logourl" value="{$data.logourl}">
+
+                </table>
+            </div>
+          </td>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="submit" class="btn" value="提交" />
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+function uploadImg(hiddenid,imgdiv,obj){
+    var filename = $(obj).val();
+    if(filename != '' && filename != null){
+        isupload = true;
+        var pic = $(obj)[0].files[0];
+        var fd = new FormData();
+        fd.append('imgFile', pic);
+        
+        $.ajax({
+            url:"__PUBLIC__/main/js/kindeditor/php/upload_json.php",
+            type:"post",
+            dataType:'json',
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                if(data && data.error == '0'){
+                    alert("上传成功");
+                    var imgurl = data.url;
+                    $("#"+imgdiv).html('<img style="height: 200px" src="'+imgurl+'">');
+                    $("#logourl").val(imgurl);
+                    
+                }else{
+                    alert(data.error);
+                }
+            },
+            error:function (){
+                alert(data.error);
+            }
+        });
+        isupload = false;
+    }
+    isupload = false;
+}
+</script>
+<script type="text/javascript">
+    
+    var date_time = '{$json.date_time}';
+    var qudaoname = '{$json.qudaoname} ';
+    var zhucecount = '{$json.zhucecount}';
+    var uvcount = '{$json.uvcount}';
+    var shimingcount = '{$json.shimingcount}';
+    var loancount = '{$json.loancount}';
+    var succcount = '{$json.succcount}';
+    var loanlv  = '{$json.loanlv}';
+    var tongguolv = '{$json.tongguolv}';
+    var caozuo = '{$json.caozuo}';
+    if(date_time == 1){
+        $('#date_time').val(1);
+         $('#date_time11').val(1);
+        $('#date_time').attr('checked',true);
+    }
+     if(qudaoname == 1){
+        $('#qudaoname').val(1);
+         $('#qudaoname11').val(1);
+        $('#qudaoname').attr('checked',true);
+    }
+    if(zhucecount == 1){
+        $('#zhucecount').val(1);
+         $('#zhucecount11').val(1);
+        $('#zhucecount').attr('checked',true);
+    }
+     if(uvcount == 1){
+        $('#uvcount').val(1);
+         $('#uvcount11').val(1);
+        $('#uvcount').attr('checked',true);
+    }
+     if(shimingcount == 1){
+        $('#shimingcount').val(1);
+         $('#shimingcount11').val(1);
+        $('#shimingcount').attr('checked',true);
+    }
+     if(loancount == 1){
+        $('#loancount').val(1);
+         $('#loancount11').val(1);
+        $('#loancount').attr('checked',true);
+    }
+     if(succcount == 1){
+        $('#succcount').val(1);
+         $('#succcount11').val(1);
+        $('#succcount').attr('checked',true);
+    }
+     if(loanlv == 1){
+        $('#loanlv').val(1);
+         $('#loanlv11').val(1);
+        $('#loanlv').attr('checked',true);
+    }
+    if(tongguolv == 1){
+        $('#tongguolv').val(1);
+         $('#tongguolv11').val(1);
+        $('#tongguolv').attr('checked',true);
+    }
+    if(caozuo == 1){
+        $('#caozuo').val(1);
+         $('#caozuo11').val(1);
+        $('#caozuo').attr('checked',true);
+    }
+      $("#date_time").click(function(){
+        if($(this).is(":checked")){
+           $('#date_time').val(1);
+            $('#date_time11').val(1);
+            $('#date_time').attr('checked',true);
+        }else{
+            
+             $('#date_time').val(0);
+              $('#date_time11').val(0);
+            $('#date_time').attr('checked',false);
+        }
+    })
+    $("#qudaoname").click(function(){
+        if($(this).is(":checked")){
+           $('#qudaoname').val(1);
+            $('#qudaoname11').val(1);
+            $('#qudaoname').attr('checked',true);
+        }else{
+            
+             $('#qudaoname').val(0);
+              $('#qudaoname11').val(0);
+            $('#qudaoname').attr('checked',false);
+        }
+    })
+    $("#zhucecount").click(function(){
+        if($(this).is(":checked")){
+           $('#zhucecount').val(1);
+            $('#zhucecount11').val(1);
+            $('#zhucecount').attr('checked',true);
+        }else{
+            
+             $('#zhucecount').val(0);
+              $('#zhucecount11').val(0);
+            $('#zhucecount').attr('checked',false);
+        }
+    })
+    $("#uvcount").click(function(){
+        if($(this).is(":checked")){
+           $('#uvcount').val(1);
+            $('#zhucecount11').val(1);
+            $('#uvcount').attr('checked',true);
+        }else{
+            
+             $('#uvcount').val(0);
+              $('#uvcount11').val(0);
+            $('#uvcount').attr('checked',false);
+        }
+    })
+     $("#shimingcount").click(function(){
+        if($(this).is(":checked")){
+           $('#shimingcount').val(1);
+            $('#shimingcount11').val(1);
+            $('#shimingcount').attr('checked',true);
+        }else{
+            
+             $('#shimingcount').val(0);
+              $('#shimingcount11').val(0);
+            $('#shimingcount').attr('checked',false);
+        }
+    })
+     $("#loancount").click(function(){
+        if($(this).is(":checked")){
+           $('#loancount').val(1);
+            $('#loancount11').val(1);
+            $('#loancount').attr('checked',true);
+        }else{
+            
+             $('#loancount').val(0);
+              $('#loancount11').val(0);
+            $('#loancount').attr('checked',false);
+        }
+    })
+      $("#succcount").click(function(){
+        if($(this).is(":checked")){
+           $('#succcount').val(1);
+            $('#succcount11').val(1);
+            $('#succcount').attr('checked',true);
+        }else{
+            
+             $('#succcount').val(0);
+              $('#succcount11').val(0);
+            $('#succcount').attr('checked',false);
+        }
+    })
+       $("#loanlv").click(function(){
+        if($(this).is(":checked")){
+           $('#loanlv').val(1);
+            $('#loanlv11').val(1);
+            $('#loanlv').attr('checked',true);
+        }else{
+            
+             $('#loanlv').val(0);
+              $('#loanlv11').val(0);
+            $('#loanlv').attr('checked',false);
+        }
+    })
+        $("#tongguolv").click(function(){
+        if($(this).is(":checked")){
+           $('#tongguolv').val(1);
+            $('#tongguolv11').val(1);
+            $('#tongguolv').attr('checked',true);
+        }else{
+            
+             $('#tongguolv').val(0);
+              $('#tongguolv11').val(0);
+            $('#tongguolv').attr('checked',false);
+        }
+    })
+    $("#caozuo").click(function(){
+        if($(this).is(":checked")){
+           $('#caozuo').val(1);
+            $('#caozuo11').val(1);
+            $('#caozuo').attr('checked',true);
+        }else{
+            
+             $('#caozuo').val(0);
+              $('#caozuo11').val(0);
+            $('#caozuo').attr('checked',false);
+        }
+    })
+</script>

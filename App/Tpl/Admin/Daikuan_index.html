@@ -1,0 +1,302 @@
+
+  <link rel="stylesheet" href="__PUBLIC__/tdstyle.1.0.css" />
+
+ <body style="zoom: 1;"> 
+  <div></div> 
+ <style>
+ .inputcss:active {
+　　    border: 1px solid #0072C6;
+    }
+	.inputcss{
+		width:480px!important;height:38px;border: 1px solid #b8b8b8;
+	}
+ </style>
+ <script>
+ var detail_data = new Array();
+ function getData(){
+		var status = new Array()
+		status[0] = "待审核";
+		status[1] = "<span style='color:blue'>待还款</span>";
+		status[2] = "<span style='color:green'>已还款</span>";
+		status[3] = "<span style='color:red'>逾期</span>";
+		status[4] = "其他";
+		status[7] = "放款中";
+		status[null] = "未借款";
+		var is_back = new Array()
+		is_back[1] = "是黑名单";
+		is_back[0] = "不是黑名单";
+		var phone = $("#phone").val();
+		if(phone == ""){
+        	layer.msg("手机号码不能未空");
+          return;
+        }
+		document.getElementById("load").style.display="block";
+		
+		$.ajax({
+					url : "index.php?g=Admin&m=Daikuan&a=webLoginGet",
+					type : "post",
+					dataType:'json',
+					data : {phone:phone},
+					success : function(ret) {
+						//layer.msg(ret.msg);
+						document.getElementById("load").style.display="none";
+						
+						
+						console.log(ret);
+						
+						
+						
+						var data = JSON.parse(ret.res);
+						
+						var listdata = data.data;
+						var indexof = 0;
+						for(var i in listdata) {
+							
+							indexof++;
+						}
+						detail_data = listdata;
+						if(data.code == '2' || data.code == 2){
+							layer.msg("余额不足");
+							$("#detail").text('');
+							return;
+						}
+						if(data.code != '1' || data.code != 1){
+							layer.msg("暂无数据");
+							$("#detail").text('');
+							return;
+						}
+						
+						var totalMoney = 0;
+						var name = '';
+						var more = "";
+						$("#detail").text('');
+						var j = 1;
+						
+						var stat = data.data.stat;
+						console.log(stat);
+						
+						var str = "借款平台个数<span style='font-size:18px;color:red'>"+ stat.borrow_plat_count +"</span> &nbsp; &nbsp待还款笔数：<span style='font-size:18px;color:red'>"+ stat.borrow_norepay_count+"</span>"+" &nbsp;&nbsp总共借款金额： <span style='color:red;font-size:18px;'>￥"+stat.borrow_total_amount+"</span>元<br/><br/>";
+						str += "逾期笔数 <span style='font-size:18px;color:red'>"+ stat.borrow_later_count +"  </span> &nbsp; &nbsp待审核笔数：<span style='font-size:18px;color:red'>"+ stat.borrow_auth_count+"</span>"+"  &nbsp;&nbsp参考评分（还款一次加10分,逾期扣100分 初始分100）: <span style='color:red;font-size:18px;'>"+stat.score+"</span>";
+						$("#title").html(str);
+						
+						
+						for(var i = 0; i < indexof; i++){
+							var lists = listdata[i];
+							list = lists[0];
+							//console.log(list);
+							if(list.borrow_status == '1'){
+								more = "查看详情";
+							}
+							if(list['next_msg'] == null){
+								list.next_msg = "";
+							}
+							if(list['borrow_time'] == null){
+								list.borrow_time = "";
+							}
+							if(list['repayment_date'] == null){
+								list.repayment_date = "";
+							}
+							if(list['repayment_date_end'] == null){
+								list.repayment_date_end = "";
+							}
+							if(list['amount'] == null){
+								list.amount = "";
+							}
+							$("#detail").append("<tr class='risk-items-flag border-bottom-2'>");
+							$("#detail").append("<td class='risk-col1'>"+j+"</td>");	
+							$("#detail").append("<td class='risk-col1'>"+list.name+"</td>");								
+							$("#detail").append("<td class='risk-col1'>"+list.plat_alias+"</td>");
+							$("#detail").append("<td class='risk-col1'>"+list.amount+"</td>");
+							$("#detail").append("<td class='risk-col1'>"+list.borrow_time+"</td>");
+						
+							$("#detail").append("<td class='risk-col1'>"+list.repayment_date+"</td>");
+							$("#detail").append("<td class='risk-col1'>"+list.repayment_date_end+"</td>");
+							
+							$("#detail").append("<td class='risk-col1'>"+list.next_msg+"</td>");
+							$("#detail").append("<td class='risk-col1'>"+is_back[list.is_black] +"</td>");
+							$("#detail").append("<td class='risk-col1'>"+status[list.borrow_status] +"</td>");
+						
+							$("#detail").append("<td class='risk-col2'> <ul class='table-mark'> <div class='risk-detail-section' onclick='changestatus2("+JSON.stringify(listdata)+"," + i+")'> <span class='risk-detail-title'>"+more+"</span></div></ul></td>");
+							
+							j ++ ;
+							
+						}
+						
+						
+					},
+					error : function() {
+						layer.msg("提交错误");
+						
+					}
+				});
+	}
+ function changestatus2(listdata,i){
+		var status = new Array()
+		status[0] = "待审核";
+		status[1] = "<span style='color:blue'>待还款</span>";
+		status[2] = "<span style='color:green'>已还款</span>";
+		status[3] = "<span style='color:red'>逾期</span>";
+		status[4] = "其他";
+		status[7] = "放款中";
+		status[null] = "未借款";
+		
+  		console.log(listdata[i]);
+		var detaildata = listdata[i];
+		
+		$("#title-detail").text('');
+		for(var j = 0 ; j < detaildata.length; j ++ ){
+			var list = detaildata[j];
+			$("#title-detail").append("<tr class='risk-items-flag border-bottom-2'>");
+			$("#title-detail").append("<td class='risk-col1'>"+list.borrow_time+"</td>");
+			$("#title-detail").append("<td class='risk-col1'>"+list.repayment_date+"</td>");
+			$("#title-detail").append("<td class='risk-col1'>"+list.repayment_date_end+"</td>");
+			$("#title-detail").append("<td class='risk-col1'>"+list.amount+"</td>");
+			$("#title-detail").append("<td class='risk-col1'>"+status[list.borrow_status]+"</td>");
+			$("#title-detail").append("</tr>");
+			
+		}
+		
+		
+		
+		
+		
+		layer.open({
+		  	type: 1,
+		  	skin: 'layui-layer-rim', //加上边框
+		  	area: ['900px', '500px'], //宽高
+		  	content: $("#changestatus_div2").html(),
+		
+			
+			btn1: function (index, layero)
+            {
+             
+			}
+		});
+		
+    }
+ </script>
+  <div id="report" style="">
+   <div class="report-mask"></div>
+   <div class="msk-detail"></div>
+   <div class="report-container">
+    <div class="container">
+   
+	<div style="text-align:center;margin-top:30px;">
+   <input type="text" class="inputcss" id="phone"/>
+  
+ 
+   <span class="btn_wr s_btn_wr bg" id="s_btn_wr"><input type="submit" value="查询一下" id="su" onclick="getData()" class="btn self-btn bg s_btn" /></span>
+  
+  <div>
+     <div class="header">
+      <h1 class="header-title">查询结果</h1>
+      
+     </div> 
+     <div class="inner person-info-div" style="display: inline-block;" style="margin-top:0px"> 
+      <div class="module">
+       <div class="address-analysis">
+        <div class="module-title">
+         <h2 id="title" style="text-align:left">
+		<!-- 姓名：振昊     代还款金额：<span style="color:red">￥1000.00</span>  -->
+		 
+		 </h2>
+        </div>
+        <div class="rpi-subitem"> 
+         <div class="table-wrap">
+         <table class="risk-table">
+          <thead>
+           <tr>
+            <th class="risk-col1">序号</th>
+           
+			<th class="risk-col1">姓名</th>
+			 <th class="risk-col1">平台</th>
+			<th class="risk-col2">借款金额</th>
+			<th class="risk-col2">借款时间</th>
+			<th class="risk-col2">还款时间</th>
+			<th class="risk-col2">实际还款时间</th>
+			<th class="risk-col2">审核评语</th>
+			<th class="risk-col2">黑名单</th>
+			<th class="risk-col2">状态</th>
+			<th class="risk-col2">操作</th>
+           </tr>
+          </thead>
+          <tbody id="detail"> 
+           
+	<!--	 <tr class="risk-items-flag border-bottom-2">
+           <td class="risk-col1">1</td>
+		   <td class="risk-col1">平台1</td>
+		   <td class="risk-col1">3</td>
+		   <td class="risk-col1">2000.00</td>
+		    <td class="risk-col1">2018-10-11</td>
+		   <td class="risk-col1">--</td>
+		   <td class="risk-col1">天津 9.29 芝麻分700 花呗8000 A</td>
+		   <td class="risk-col1">待还款</td>
+            <td class="risk-col2"> 
+             <ul class="table-mark"> 
+              <div class="risk-detail-section">
+               <span class="risk-detail-title">查看详情</span>
+               
+              </div> 
+             </ul> 
+			 </td>
+           </tr> 
+	
+		-->
+		  
+          </tbody>
+         </table>
+        </div> 
+        </div>
+       </div>
+      </div> 
+    
+     </div> 
+    
+    </div>
+   </div>
+  </div> 
+  
+  
+
+<div style="display: none;" id="changestatus_div2">
+<br>
+	 
+    <div class="layui-form">
+		<div class="layui-form-item">
+	<table class="layui-table" >
+    <colgroup>
+      <col width="25%">
+      <col width="25%">
+      <col width="25%">
+      <col width="15%">
+	  <col width="10%">
+	    </colgroup>
+    <thead>
+      <tr>
+        <th class="risk-col2">借款时间</th>
+        <th class="risk-col2">还款时间</th>
+        <th class="risk-col2">实际还款时间</th>
+        <th class="risk-col2">借款金额</th>
+		<th class="risk-col1">状态</th>
+      </tr> 
+    </thead>
+    <tbody id="title-detail">
+   
+    
+    </tbody>
+  </table>
+  </div>
+</div>
+			
+		
+	
+</div>
+
+<div style="width: 100%; height: 100%; background: rgba(0,0,0,0.6); position: fixed; z-index: 999; top: 0;  text-align: center; display:none" id="load">
+<div style="width:60%; height: 200px;border-radius: 5px; margin-top: 180px; padding: 10px 10px 10px 10px;">
+	<img src="__PUBLIC__/home/imgs/timg.gif" style="opacity: 0.4;"/>
+	<p style="color: #fff;">查询中请稍后</p>
+</div>
+</div>
+ </body>
+</html>

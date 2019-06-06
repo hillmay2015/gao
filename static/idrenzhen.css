@@ -1,0 +1,121 @@
+.mui-content,
+.mui-bar,
+body {
+	background-color: white;
+}
+
+.mui-bar,
+.mui-bar-nav {
+	box-shadow: none;
+	border-bottom: solid 1px #CCCCCC;
+}
+
+.mui-content>p:nth-child(1) {
+    text-align: center;
+    line-height: 4;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h4 {
+	text-align: left;
+	padding-left: 0.8em;
+	font-size: 14px;
+	line-height: 1.5;
+	color: rgba(0, 0, 0, .8);
+	background-color: white;
+}
+
+#upload_two,
+#upload_three,
+#upload_one {
+	width: 6em;
+	height: 5em;
+	background: url(../id-ico.png) center center no-repeat;
+	background-size: 290%;
+	background-position: 13px 1px;
+}
+
+#upload_two {
+	background-position: -93px 1px;
+}
+
+#upload_three {
+	background-position: -200px 1px;
+}
+
+.box {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.box>div>img {
+	width: 95%;
+	height: 100%;
+	display: none;
+}
+
+#select_btn_1 {
+	width: 5em;
+	height: 5em;
+	display: inline-block !important;
+	opacity: 0;
+}
+
+#file_upload_1-queue {
+	display: none;
+}
+
+#imgss {
+	width: 100%;
+	display: none;
+}
+
+hr {
+	border: none;
+	border-bottom: solid 1px #ccc;
+}
+
+.active {
+	width: 90% !important;
+	font-size: 13px !important;
+	height: 2em !important;
+	margin: .5em 0 !important;
+}
+
+button {
+	width: 90%;
+	border-radius: 18px;
+	margin-top: 20%;
+	background-color: #007aff;
+	color: white;
+	letter-spacing: 2px;
+	height: 3em;
+}
+
+body {
+	min-width: 320px;
+}
+
+
+/*上传样式处理*/
+
+a,
+input {
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#choose_three,
+#choose_two,
+#choose {
+	display: none;
+}
+
+canvas {
+	width: 100%;
+	border: 1px solid #000000;
+}

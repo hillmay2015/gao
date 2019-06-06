@@ -1,0 +1,200 @@
+.ts {
+
+	background-color: rgb(255, 248, 232);
+
+	height: 2.4em;
+
+}
+
+
+
+.ts>p {
+
+	color: rgb(253, 113, 58);
+
+	line-height: 2.8;
+
+	padding-left: 3em;
+
+	position: relative;
+
+}
+
+
+
+.ts>p:before {
+
+	content: "";
+
+	background: url(../addlist-ico.png) center center no-repeat;
+
+	background-size: 106%;
+
+	position: absolute;
+
+	width: 40px;
+
+	height: 30px;
+
+	background-position: 13px 9px;
+
+	left: 0;
+
+	top: 0;
+
+}
+
+
+
+form>ul {
+
+	background-color: white;
+
+	list-style: none;
+
+	counter-reset: count;
+
+	padding-left: 1em;
+
+}
+
+
+
+li:before {
+
+	content: "●";
+
+	color: rgb(76, 123, 253);
+
+}
+
+
+
+form>ul>li {
+
+	font-size: 14px;
+
+	height: 3em;
+
+	line-height: 3;
+
+	position: relative;
+
+}
+
+
+
+input {
+
+	width: 50% !important;
+
+	margin-left: 1em;
+
+	outline: none;
+
+	height: 2em !important;
+
+	border: none !important;
+
+}
+
+
+
+hr {
+
+	margin: 0;
+
+	margin-left: -60px;
+
+	border: none;
+
+	border-bottom: solid 1px #CCCCCC;
+
+}
+
+
+
+select {
+
+	width: 4em;
+
+	height: 3em;
+
+	margin: 0;
+
+	padding: 0;
+
+	background: none;
+
+	position: absolute;
+
+	right: 1em;
+
+}
+
+
+
+.mui-icon {
+
+	position: absolute;
+
+	right: 0;
+
+	top: 0.35em;
+
+}
+.mui-bar-nav~.mui-content {
+    position: relative;
+}
+
+
+#btn {
+
+	position: absolute;
+
+	bottom: -22%;
+
+	/* margin: 0 auto; */
+
+	left: 50%;
+
+	transform: translatex(-50%);
+
+	background-color: rgb(76, 123, 253);
+
+	color: white;
+
+	width: 80%;
+
+	height: 3em;
+
+	font-size: 1em;
+
+	border-radius: 5em;
+
+}
+
+.addlist-one{
+    display: none;
+
+    float: right;
+
+    width: 3em;
+
+    height: 3em;
+
+    margin-right: 1.3em;
+
+    background: url(../addlist-ico.png) center center no-repeat;
+
+    background-size: cover;
+
+    background-position-y: -42px;
+
+}
+@media only screen and (max-width: 320px) {
+	.addlist-one {
+	    margin-right: 0.5em;
+    }
+}
+

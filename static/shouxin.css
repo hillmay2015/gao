@@ -1,0 +1,122 @@
+.mui-content {
+	height: 11em;
+	background-color: rgb(67, 150, 254);
+	position: relative;
+}
+
+.content-main {
+	text-align: center;
+	margin-top: 2em;
+}
+
+.content-main>p {
+	color: white;
+	font-size: 18px;
+}
+
+.mui-content>p {
+	margin-top: 1em;
+	text-align: center;
+	color: white;
+}
+
+.box {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 8.4em;
+}
+
+.content-main-two {
+    /* height: 4.7em; */
+    border-radius: 0.5em;
+    /* position: absolute; */
+    width: 94%;
+    background-color: white;
+    top: 9em;
+    left: 0.7em;
+    margin: .5em auto;
+    padding: 0.05em 0;
+}
+
+.content-main-two>ul {
+    list-style: none;
+    /* margin: 0.7em auto; */
+    padding-left: 1em;
+    position: relative;
+    line-height: 1.7;
+}
+
+.content-main-two>ul>li {
+	display: inline-block;
+}
+
+.content-main-two>ul>li:nth-child(1) {
+	width: 3em;
+	height: 2.9em;
+	background-image: url(../icoss.png);
+	background-repeat: no-repeat;
+	background-size: 800%;
+	background-position-x: -23.7px;
+	background-position-y: -195px;
+}
+
+.content-main-two>ul>li:nth-child(2) {
+	width: 8.7em;
+	position: absolute;
+	top: 6px;
+}
+
+.content-main-two>ul>li:nth-child(3) {
+	width: 4em;
+	float: right;
+	margin: 0.9em auto;
+	border-radius: .5em;
+	background-color: rgb(77, 123, 254);
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 0.7em;
+	height: 1.6em;
+	line-height: 1.6em;
+}
+
+.content-main-two>ul>li:nth-child(3)>a {
+	color: white;
+}
+
+.content-main-two>ul>li:nth-child(3)>a:hover {
+	color: white;
+}
+
+.three {
+	top: 14.4em;
+}
+
+.four {
+	top: 19.8em;
+}
+
+.five {
+	top: 25.3em;
+}
+
+.three>ul>li>p,
+.four>ul>li>p,
+.content-main-two>ul>li>p,
+.five>ul>li>p {
+	margin-bottom: 0;
+	font-size: 16px;
+}
+
+.three>ul>li:nth-child(1) {
+	background-position-y: -275px;
+}
+
+.four>ul>li:nth-child(1) {
+	background-position-y: -351px;
+}
+
+.five>ul>li:nth-child(1) {
+	background-position-y: -435px;
+}

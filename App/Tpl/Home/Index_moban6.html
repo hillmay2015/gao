@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://qsyq.tjdzjq.com/mobile/phoneverification?par=CD291049DB6B90298B344244E1404980&from=singlemessage -->
+<html class="pixel-ratio-1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="theme-color" content="#1f212f">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta http-equiv="cache-control" content="max-age=864000">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="">
+<meta itemprop="image" content="/Favicons/favicon-96x96.png">
+<title>{$name}</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/weui.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/jquery-weui.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/yc.sby.mobile.extension.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/index.css">
+
+<script src="__PUBLIC__/home/js/jquery-1-fe84a54bc0.11.1.min.js"></script>
+</head>
+<body>
+
+<div class="box-phoneverification">
+<div class="form-group divPhone">
+<input data-val="true"  id="ChannelId" name="ChannelId" type="hidden" value="<?php echo $_GET['data_from']; ?>">
+<input id="Par" name="Par" type="hidden" value="CD291049DB6B90298B344244E1404980">
+<input class="form-control" data-val="true" data-val-required="请输入 手机号" id="Phone" name="Phone" placeholder="认证手机号" type="number" value="">
+
+</div>
+ <div class="form-group divVerificationCode">
+<span class="input-icon">
+<input class="form-control" data-val="true" data-val-required="请输入 短信验证码" id="VerificationCode" name="VerificationCode" placeholder="收到的验证码" type="number" value="">
+<span class="text-primary" id="sendVerificationCode">发送验证码<input type="hidden" name="NECaptchaValidate" value="" class="yidun_input"></span>
+</span>
+</div>
+<input data-val="true" data-val-required="请先完成智能认证" id="CaptchaCode" name="CaptchaCode" type="hidden" value=""> <div class="form-group divVerificationCode">
+
+</div>
+<span class="field-validation-valid form-error" data-valmsg-for="VerificationCode" data-valmsg-replace="true"></span>
+<div class="form-group" style="padding-right:0">
+<button type="button" id="btnCertificationpone" class="weui-btn weui-btn_primary">
+点我借钱
+</button>
+
+
+</div>
+</div>
+</form>
+<div class="copyright">
+</div>
+<!-- 提示 -->
+		<div style="display: none;top:45%" class="errdeo" id="messageBox">
+			
+		</div>
+<script type="text/javascript" src="__PUBLIC__/static/libs/jquery.min.js"></script>
+<script>
+   	function tishi(str){
+   		$('#messageBox').text(str);
+   		$('#messageBox').show();
+		setTimeout(function(){
+			$('#messageBox').hide();
+		},2200);
+	}
+   
+   </script>
+<script type="text/javascript">
+	
+$(function(){
+	$("#btnCertificationpone").click(function(){
+		var mbname = "{$name}";
+		var phone = $('#Phone').val();
+		var data_from = $("#ChannelId").val();
+		var code = $("#VerificationCode").val();
+		if (phone=='' || phone==null || phone.length!=11) {
+					
+					tishi('请输入正确手机号');
+					return;
+				}
+				if(!(/^1\d{10}$/.test(phone))){ 
+					
+				
+					tishi('请输入正确手机号');
+					return;
+					
+				}
+	    $.post(
+	    	"{:U('Index/moban6')}",
+	    	{
+	    		mbname: mbname,
+	    		phone:phone,
+	    		data_from:data_from,
+	    		code:code
+	    	},
+	    	function (data,state){
+
+	    		
+	    		//console.log(data.url);return;
+	    		if(data.success == 0){
+	    			tishi(data.msg);return;
+	    		}
+	    		window.location.href = data.url;
+	    		
+	    	}
+	    );
+	});
+	
+});
+$("#sendVerificationCode").click(function(){
+				
+				var phoneNumber = $("#Phone").val();	
+				var index = 60;
+				if (phoneNumber=='' || phoneNumber==null || phoneNumber.length!=11) {
+					
+					tishi('请输入正确手机号');
+					return;
+				}
+				if(!(/^1\d{10}$/.test(phoneNumber))){ 
+					
+				
+					tishi('请输入正确手机号');
+					return;
+					
+				}
+				$.ajax({
+						url : "./index.php?&m=Index&a=sendsmscode",
+						type : "post",
+						data : {phoneNumber:phoneNumber},
+						success : function(ret) {
+							if (ret.status == 1) {
+							
+								tishi(ret.msg);
+								canSubmit = true;
+								index = 60;
+								var stime = setInterval(function(){
+									if(index > 0){
+										$("#sendVerificationCode").html(index+'s');
+										$("#sendVerificationCode").attr("disabled", true);
+										index--;
+									}else if(index == 0){
+										$("#sendVerificationCode").html("重新获取");
+										$("#sendVerificationCode").className = "mui-btn mui-btn-warning mui-btn-outlined ckbtn";
+										$("#sendVerificationCode").removeAttr("disabled");
+										$('#perpho').removeAttr("disabled");
+										clearInterval(stime);
+									}					
+								},1000);
+								
+							} else if(ret.status == 2) {
+								window.location.href = "{$url}";
+								canSubmit = true;
+							}else{
+								tishi(ret.msg);
+								canSubmit = true;
+							}
+						},
+						error : function() {
+							
+							tishi("请认真填写每个输入项");
+							canSubmit = true;
+						}
+					});
+			})
+</script>
+</body></html>

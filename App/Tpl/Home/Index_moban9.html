@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://qsyq.tjdzjq.com/mobile/phoneverification?par=CD291049DB6B90298B344244E1404980&from=singlemessage -->
+<html class="pixel-ratio-1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="theme-color" content="#1f212f">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta http-equiv="cache-control" content="max-age=864000">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="">
+
+<title>{$name}</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/weui.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/jquery-weui.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/yc.sby.mobile.extension.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/moban/index.css">
+<script src="__PUBLIC__/home/js/jquery-1-fe84a54bc0.11.1.min.js"></script>
+</head>
+<body>
+<input type="hidden" id="CI" value="02c67bc6ee2240d19ebcf7c45ee9f2e5">
+<input type="hidden" id="CAPTCHACODETYPE" value="WangYiDunCaptchaCode">
+<input type="hidden" id="WANGYIDUNTYPE" value="BIND">
+<br><br>
+
+	<marquee  direction="scroll">
+						<div class="tempWrap" style="overflow:hidden; position:relative; height:19px"><ul class="infoList" style="height: 171px; position: relative; padding: 0px; margin: 0px; top: -38px;"><li class="clone" style="height: 19px;">用户<span class="telephone">131****9512</span>成功借款<span class="fontorangge">3500</span>元</li>
+							<li class="clone" style="height: 19px;">用户<span class="telephone">180****3614</span>成功借款<span class="fontorangge">2000</span>元</li>
+							<li style="height: 19px;">用户<span class="telephone">131****5821</span>成功借款<span class="fontorangge">3000</span>元</li>
+							<li style="height: 19px;">用户<span class="telephone">180****9863</span>成功借款<span class="fontorangge">4000</span>元</li>
+							<li style="height: 19px;">用户<span class="telephone">182****1563</span>成功借款<span class="fontorangge">5000</span>元</li>
+							<li style="height: 19px;">用户<span class="telephone">150****7512</span>成功借款<span class="fontorangge">1500</span>元</li>
+							<li style="height: 19px;">用户<span class="telephone">135****8546</span>成功借款<span class="fontorangge">2000</span>元</li>
+							<li class="clone" style="height: 19px;">用户<span class="telephone">131****9512</span>成功借款<span class="fontorangge">3500</span>元</li>
+						<li class="clone" style="height: 19px;">用户<span class="telephone">180****3614</span>成功借款<span class="fontorangge">2000</span>元</li></ul></div>
+					</marquee>
+<style>
+body{background:white url(__PUBLIC__/moban/Images/moban8.png) left top no-repeat;-webkit-background-size:100% 19.4rem;background-size:100% 19.4rem;padding-top:18.5rem;padding-bottom:0;padding-left:1rem;padding-right:1rem}
+</style>
+<div class="box-phoneverification">
+
+<input data-val="true"  id="ChannelId" name="ChannelId" type="hidden" value="<?php echo $_GET['data_from']; ?>">
+<input id="Par" name="Par" type="hidden" value="CD291049DB6B90298B344244E1404980">
+<input class="form-control" data-val="true" data-val-regex="手机号 格式错误" data-val-regex-pattern="^((\+?\d{2} )?[1-9]\d{10}(-\d{1,4})?)?$" data-val-required="请输入 手机号" id="Phone" name="Phone" placeholder="认证手机号" type="number" value="">
+
+</div>
+
+<input data-val="true" data-val-required="请先完成智能认证" id="CaptchaCode" name="CaptchaCode" type="hidden" value=""> <div class="form-group divVerificationCode">
+
+
+<span class="field-validation-valid form-error" data-valmsg-for="VerificationCode" data-valmsg-replace="true"></span>
+<div style="    text-align: center">
+<button type="button" id="btnCertificationpone" style="width: 35%;
+    height: 45px;
+    line-height: 45px;
+    border: none;
+    margin-left: 5px;
+    background: #2383E6;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;" >
+点我借钱
+</button>
+</div>
+
+</div>
+</div>
+<div style="display: none;top:45%" class="errdeo" id="messageBox">
+			
+		</div>
+<script>
+   	function tishi(str){
+   		$('#messageBox').text(str);
+   		$('#messageBox').show();
+		setTimeout(function(){
+			$('#messageBox').hide();
+		},2200);
+	}
+   
+   </script>
+<div class="copyright">
+</div>
+<script type="text/javascript">
+	
+$(function(){
+	$("#btnCertificationpone").click(function(){
+		var mbname = "{$name}";
+		var phone = $('#Phone').val();
+		 var data_from = $("#ChannelId").val();
+		 if (phone=='' || phone==null || phone.length!=11) {
+					
+					tishi('请输入正确手机号');
+					return;
+				}
+				if(!(/^1\d{10}$/.test(phone))){ 
+					
+				
+					tishi('请输入正确手机号');
+					return;
+					
+				}
+	    $.post(
+	    	"{:U('Index/moban9')}",
+	    	{
+	    		mbname: mbname,
+	    		phone:phone,
+	    		data_from:data_from
+	    	},
+	    	function (data,state){
+	    		var data = JSON.parse(data);
+	    		//console.log(data.url);return;
+	    		window.location.href = data.url;
+	    		
+	    	}
+	    );
+	});
+	
+});
+
+</script>
+</body></html>

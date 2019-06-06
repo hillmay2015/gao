@@ -1,0 +1,197 @@
+<h3><a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/add')}" class="actionBtn">添加用户</a>{$title}</h3>
+	<link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
+<style>
+.seach_span{
+    float: left;
+    line-height: 30px;
+    font-size: 16px;
+}
+</style>
+<div class="filter">
+    <form action="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/index')}" method="post">
+        <font class="seach_span">管理员名称:</font>
+        <input name="username" type="text" class="inpMain" value="{$seach_name}" size="20" placeholder="请输入姓名" />
+        <input name="submit" class="btnGray" type="submit" value="筛选" />
+    </form>
+</div>
+
+<span >UV：{$sumsjcount} </span> <span >注册：{$sumklcount}</span>  <span > 昨日总注册量：{$yestodaycount}</span>
+<table width="100%" border="0" cellpadding="11" cellspacing="0" class="layui-table">
+    <tr>
+    	<th width="50" align="center"><input type="checkbox" name="" id="allChoose"></th>
+
+        <th align="left">账号</th>
+
+		<th align="left">姓名</th>
+		<th align="left">转化率%</th>
+		<th align="left">手机号码</th>
+		<th align="left">角色</th>
+        <th align="left">添加时间</th>
+
+		<th align="left">UV</th>
+		<th align="left">注册量</th>
+        <th align="left">昨日注册量</th>
+        <th align="left">申请率(实名)%</th>
+        <th align="left">借款人次%</th>
+        <th align="left">成功人次%</th>
+        <th align="left">放款率%</th>
+		<th align="left">状态</th>
+        <th align="left">操作</th>
+    </tr>
+    <foreach name="data" item="vo">
+        <tr>
+        	<td align="center"><input type="checkbox"  data='{$vo.id}' ></td>
+
+            <td>{$vo.username}</td>
+
+
+			<td>{$vo.name}</td>
+			<td>{$vo.qq}</td>
+			<td>
+				{$vo.phone}
+			</td>
+			<td>
+				<if condition="$vo['gid'] eq 1">
+                    管理员
+                </if>
+                    <if condition="$vo['gid'] eq 2">
+                    渠道商
+                    </if>
+                <if condition="$vo['gid'] eq 3">
+                    推广员
+                </if>
+			</td>
+
+            <td align="center">{$vo.addtime|date="Y-m-d H:i:s",###}</td>
+
+
+			 <td>{$vo.count}</td>
+			  <td>{$vo.sjcount}</td>
+               <td>{$vo.zuoricount}</td>
+               <td>{$vo.shenqLv}</td>
+               <td>{$vo.loanRenci}</td>
+               <td>{$vo.chenggongrenci}</td>
+                <td>{$vo.fangkuanLv}</td>
+			  <td>
+				<if condition="$vo['status'] eq 1">
+                    推广中
+                    <else/>
+                    暂停
+                </if>
+			</td>
+            <td align="center">
+             	<a class="do-action layui-btn layui-btn-small do-edit"  href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/User/pdlist',array('username' => $vo['username']))}">查看</a>
+             	<if condition="$vo['status'] eq 1">
+                     <a class="do-action layui-btn layui-btn-small do-edit"  href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/shop',array('editid' => $vo['id']))}&s=0">暂停</a>
+                    <else/>
+                     <a class="do-action layui-btn layui-btn-small do-edit"  href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/shop',array('editid' => $vo['id']))}&=1">开启</a>
+                </if>
+
+			   <a class="do-action layui-btn layui-btn-small do-edit"  href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/edit',array('editid' => $vo['id']))}">编辑</a>
+
+               <a class="do-action layui-btn layui-btn-small do-edit"  href="javascript:;" onclick="delAdmin('{$vo.username}','<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Admin/del',array('id' => $vo['id'] ))}');">删除</a>
+            </td>
+        </tr>
+    </foreach>
+</table>
+<div class="pager">{$page}</div>
+
+<script>
+    function delAdmin(username,jumpurl){
+        layer.confirm(
+                '确定要删除管理员:'+username+'吗?',
+                function (){
+                    window.location.href = jumpurl;
+                }
+        );
+    }
+	function changestatus(oid,name){
+  		$("#user").html(name);
+    	$("#id2").val(oid);
+
+		layer.open({
+		  	type: 1,
+		  	skin: 'layui-layer-rim', //加上边框
+		  	area: ['600px', '300px'], //宽高
+		  	content: $("#changestatus_div2").html(),
+
+			btn: ['充值'],
+			btn1: function (index, layero)
+             {
+                var id = $(layero).find("#id2").val();
+				var qianbao = $(layero).find("#qianbao").val();
+
+
+				if(id){
+					$.post(
+						"{:U(GROUP_NAME.'/Admin/chongzhi?id=')}"+id,
+						{qianbao:qianbao,id:id},
+						function(data,state){
+
+							if(data.status == 1){
+								layer.msg("充值成功!");
+								setTimeout(function(){
+									window.location.href = window.location.href;
+								},500);
+							}else{
+								layer.msg(data.msg);
+							}
+						}
+					);
+				}else{
+					layer.msg("操作错误请刷新在试!");
+				}
+					 }
+		});
+
+    }
+    $("#delall").click(function(){
+        var adIds = "";
+        $(":checkbox:checked").each(function(i){
+            if(0==i){
+                adIds = $(this).attr('data');
+            }else{
+                adIds += (","+$(this).attr('data'));
+            }
+
+        });
+
+        $.ajax({
+                    url : "index.php?g=Admin&m=Admin&a=alldel",
+                    type : "post",
+                    data : {adIds:adIds},
+                    success : function(ret) {
+                        if (ret.success) {
+                            //var qq=ret.data.qq;
+
+                            layer.msg("成功删除"+ret.msg+"条数据");
+                            setTimeout(function(){
+                                window.location.href = 'index.php?g=Admin&m=Admin&a=index';
+                            },1000);
+
+                        } else {
+                            layer.msg(ret.msg);
+
+                        }
+                    },
+                    error : function() {
+                        layer.msg("提交错误");
+
+                    }
+                });
+    })
+</script>
+
+<div style="display: none;" id="changestatus_div2">
+<br>
+    <div class="layui-form">
+			正在給<span id='user'></span>用户充值.
+			<div class="layui-form-item">
+				<label class="layui-form-label">充值金额</label>
+				<div class="layui-input-block">
+					<input type="number" name="qianbao" id="qianbao" value=""  placeholder="充值金额" class="layui-input">
+					<input type="hidden" name="id2" id="id2" value="" >
+				</div>
+			</div>
+
+</div>

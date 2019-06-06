@@ -1,0 +1,66 @@
+<h3>
+    {$title}
+</h3>
+<link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
+	<link rel="stylesheet" href="__PUBLIC__/static/libs/font-awesome/css/font-awesome.min.css">
+<div class="filter">
+    <form action="{:U(GROUP_NAME.'/Payorder/index')}" method="post">
+      	 <input name="stratdate" type="date" placeholder="申请起始时间" class="inpMain"   style="font-size:18px"/>
+		  <input name="enddate" type="date" placeholder="申请截止时间" class="inpMain"    style="font-size:18px"/>
+		 
+        <input name="user" type="text" class="inpMain" value="{$keyword}" placeholder="请输入查询用户名" size="20" />
+        <input name="submit"  class="layui-btn" type="submit" value="查询" />
+     	 <a href="{:U(GROUP_NAME.'/Daikuan/daochu')}" class="layui-btn" />导出</a>
+    </form>
+</div>
+<div id="list">
+        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="layui-table">
+            <tr>
+                <th width="50" align="center">ID</th>
+                
+                <th width="100" align="center">用户名</th>
+               <th width="100" align="center">查询用户</th>
+              
+                <th width="150" align="center">创建日期</th>
+                <th width="80">状态</th>
+                <th align="center">操作</th>
+            </tr>
+            <volist name="list" id="vo">
+                <tr>
+                    <td align="center">{$vo.id}</td>
+                   
+                    <td align="center">{$vo.user}</td>
+					 <td align="center">{$vo.name}</td>
+				
+                    <td align="center">{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+                    <td align="center">
+                    	<php>
+                    		if($vo['status']){
+                    			echo "已支付";
+                    		}else{
+                    			echo "未支付";
+                    		}
+                    	</php>
+                    </td>
+                    <td align="center">
+                     <!--   <a href="javascript:del('{$vo.ordernum}','{:U(GROUP_NAME.'/Payorder/del',array('id'=>$vo['id']))}');">删除订单</a> -->
+                    </td>
+                </tr>
+            </volist>
+        </table>
+</div>
+<div class="clear"></div>
+<div class="pager">
+    {$page}
+</div>
+</div>
+<script>
+    function del(num,jumpurl){
+        layer.confirm(
+                '确定要删除订单:'+num+'吗?',
+                function (){
+                    window.location.href = jumpurl;
+                }
+        );
+    }
+</script>

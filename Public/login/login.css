@@ -1,0 +1,205 @@
+a,address,b,body,cite,dd,del,div,dl,dt,em,form,h1,h2,h3,h4,h5,h6,html,i,iframe,img,label,li,ol,p,s,span,strong,table,tbody,td,th,thead,tr,ul {
+	margin: 0;
+	padding: 0;
+	border: medium none
+}
+
+body {
+	font-size: 12px;
+	color: #000;
+	white-space: normal;
+	font-family: "microsoft yahei","微软雅黑",Arial,Helvetica,sans-serif
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%
+}
+
+ol,ul {
+	list-style: none
+}
+
+img {
+	border: none
+}
+
+input,select,textarea {
+	outline: 0;
+	border: none;
+	background: 0 0
+}
+
+textarea {
+	resize: none
+}
+
+a {
+	text-decoration: none
+}
+
+a,label {
+	outline: 0
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.poa {
+	position: absolute
+}
+
+.por {
+	position: relative
+}
+
+.transition {
+	-webkit-transition: all .8s ease-out;
+	transition: all .8s ease-out
+}
+
+
+.layui-row {
+	overflow: hidden
+}
+
+.login-box {
+	background: rgba(0,0,0,.8);
+	width: 360px;
+	height: 335px;
+	margin: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-radius: 5px;
+	padding: 0
+}
+
+.v-m {
+	vertical-align: middle
+}
+
+.d-i-b {
+	display: inline-block
+}
+
+.icon-user {
+	width: 24px;
+	height: 24px;
+	background: url(l.png) no-repeat center center;
+	background-size: contain
+}
+
+.icon-pass {
+	width: 24px;
+	height: 24px;
+	background: url(m.png) no-repeat center center;
+	background-size: contain
+}
+
+.login-box dl {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 25px;
+	border-collapse: separate
+}
+
+.login-box i {
+	margin-top: 5px
+}
+
+.login-box dt {
+	width: 50px;
+	background: #eee;
+	float: left;
+	height: 38px;
+	text-align: center;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	border-right: 1px solid #ccc
+}
+
+.login-box dd {
+	position: relative;
+	margin-left: 51px;
+	height: 38px
+}
+
+.login-box .layui-input {
+	font-size: 14px;
+	border: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	text-shadow: 1px 1px 1px rgba(0,0,0,.1)
+}
+
+.login-title {
+	font-size: 26px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+	position: relative;
+	height: 60px;
+	line-height: 60px;
+	margin: 10px 0 20px 0;
+	padding: 0 30px
+}
+
+.login-box-con {
+	padding: 0 30px
+}
+
+.login-title::before {
+	content: '';
+	position: absolute;
+	width: 90px;
+	height: 1px;
+	background: rgba(0,0,0,.9);
+	border-top: 1px #ddd solid;
+	left: 30px;
+	top: 50%;
+	margin-top: -1px;
+	border-radius: 10px
+}
+
+.login-title::after {
+	content: '';
+	position: absolute;
+	width: 90px;
+	height: 1px;
+	background: rgba(0,0,0,.9);
+	border-top: 1px #ddd solid;
+	right: 30px;
+	top: 50%;
+	margin-top: -1px;
+	border-radius: 10px
+}
+
+.login-footer {
+	text-align: center;
+	border-top: 1px solid #ddd;
+	font-size: 14px;
+	color: #fff;
+	line-height: 40px;
+	text-shadow: 1px 1px 1px #000;
+	margin-top: 20px
+}
+
+.login-box .layui-btn {
+	font-size: 16px
+}
+
+@media (max-width:370px) {
+	.login-box {
+		width: 340px
+	}
+}

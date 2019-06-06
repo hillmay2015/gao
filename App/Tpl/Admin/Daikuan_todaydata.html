@@ -1,0 +1,17 @@
+ <div class="main_container">
+            <ul>
+               
+                <li class="maininfo li2 ">
+                    <div class="title">流量余额</div>
+                    <br>
+                    <div class="name">{$qianbao}流量</div>
+                    <div class="buyButton"><a href="{:U('Payorder/index')}" style="color:#ff3366;">最新流量购买</a></div>
+                </li>
+                <li class="maininfo li3 ">
+                    <div class="title">使用情况</div>
+                    <br>
+                    <div class="tip3">剩余可购买 <text> <php> echo $qianbao/C('cfg_sitedescription')</php></text>条</div>
+                    <div class="tip2">历史购买{$count}条</div>
+                </li>
+            </ul>
+        </div>

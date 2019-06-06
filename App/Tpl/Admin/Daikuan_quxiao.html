@@ -1,0 +1,480 @@
+
+	<link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
+	<link rel="stylesheet" href="__PUBLIC__/static/libs/font-awesome/css/font-awesome.min.css">
+	
+
+<div class="filter">
+    <form action="{:U(GROUP_NAME.'/Daikuan/quxiao')}" method="post">
+        
+		 <input name="stratdate" type="date" placeholder="申请起始时间" class="inpMain"   style="height: 32px; font-size:18px"/>
+		  <input name="enddate" type="date" placeholder="申请截止时间" class="inpMain"    style="height: 32px; font-size:18px"/>
+		 
+		   <input name="phone_number" type="text" placeholder="手机号码" class="inpMain" value=""   style="height: 32px; font-size:18px" />
+		  <input name="data_from" type="text" placeholder="数据来源" class="inpMain" value="{$from}"   style="height: 32px; font-size:18px" />
+		 
+          <input name="submit" class="layui-btn" type="submit" value="查询" />
+		<!--	 <a href="{:U(GROUP_NAME.'/Daikuan/daochu')}" class="layui-btn" />导出</a> -->
+    </form>
+	
+</div><br>
+
+<div id="list">
+        <table width="100%" border="0" cellspacing="0" class="layui-table">
+		<colgroup>
+					<col width="30">
+					<!-- <col width="70"> -->
+					<col width="100">
+					<col width="100">
+					<col width="100">
+					<col width="80">
+					
+					<col width="100">
+					<!-- <col width="100"> -->
+					
+					<col width="100">
+					<col width="130">
+					<col width="100">
+					<col width="100">
+					<col width="100">
+					
+					<!-- <col> -->
+					<col width="90">
+					<col width="100">
+					<col width="250">
+				</colgroup>
+            <tr>
+                <th width="50" align="center"><input type="checkbox" name="" id="allChoose"></th>
+                <th width="100" align="center">姓名</th>
+                <th width="80" align="center">电话</th>
+				<th width="100" align="center">手机型号</th>
+               
+               
+                <th width="70" align="center">芝麻分</th>
+				 <th width="70" align="center">微信号</th>
+				 <th width="50" align="center">年龄</th>
+				 
+                <th width="90" align="center">创建日期</th>
+              
+				<th width="70" align="center">处理状态</th>
+				<th width="70" align="center">处理结果</th>
+				<th width="70" align="center">数据来源</th>
+				<th width="70" align="center">处理人</th>
+                <th width="240" align="center">操作</th>
+            </tr>
+            <volist name="list" id="vo">
+                <tr>
+                    <td align="center"><input type="checkbox"  data='{$vo.sort_num}' ></td>
+                    <td align="center">{$vo.name}</td>
+                    <td align="center">{$vo.phone_number}
+					<button class="do-action layui-btn layui-btn-small" style="background-color:#FF5722;color:#fff">
+					<php>
+						if($vo['yysrz'] == 1){
+						echo '运营商已认证';
+						}else{
+							echo '未认证运营商';
+						}
+						</php>
+						</button>
+					</td>
+					<td align="center">{$vo.mobileType}</td>
+                  
+				
+					<td align="center">{$vo.zhimafen}</td>
+					<td align="center">{$vo.wechat}</td>
+					<td align="center">{$vo.age}</td>
+					<td align="center">{$vo.create_date}</td>
+					
+					
+					<td align="center" id="zhuangtai" lay-filter="zhuangtai" lay-data="{$vo.sort_num}">{$vo.process_states}</td>
+					<td align="center">{$vo.process_content}</td>
+					<td align="center">{$vo.data_from}</td>
+					<td align="">{$vo.process_user_name}</td>
+					
+                    <td align="center">
+                    	<div class="layui-btn-group">
+							<a href="javascript:changestatus('{$vo.name}',{$vo.sort_num})"><button class="do-action layui-btn layui-btn-small do-edit" >编辑</button></a>
+							<a href="javascript:changestatus2('{$vo.name}',{$vo.sort_num})"><button class="do-action layui-btn layui-btn-small do-edit" >审核</button></a>
+							<php>
+	   if($adminlogin['gid'] == 1){ </php>
+							<a href="javascript:del('{$vo.name}',{$vo.sort_num})"><button class="do-action layui-btn layui-btn-small do-edit" >删除</button></a><php>
+		}
+		</php>
+						<button class="do-action layui-btn layui-btn-small do-edit" >
+						<a href="index.php?g=Admin&m=Daikuan&a=fujian&sort_num={$vo.sort_num}" style="color:#fff">查看资料</a></button> 
+						</div>
+                    </td>
+                </tr>
+            </volist>
+        </table>
+</div><php>
+  if($adminlogin['gid'] == 1){ </php>
+<button id="delall" class="do-action layui-btn layui-btn-small do-edit">删除所有</button><php>
+		}
+		</php>
+<div class="clear"></div>
+<div class="pager">
+    {$page}
+</div>
+</div>
+<!-- 提示 -->
+	<div style="display: none; position: absolute;" class="errdeo" id="messageBox"></div>
+<script>
+	var otherimg = "";
+	var otherexcel = "";
+	function uploadImg(hiddenid,divid,obj){
+		var filename = $(obj).val();
+		if(filename != '' && filename != null){
+			isupload = true;
+			var pic = $(obj)[0].files[0];
+			var fd = new FormData();
+			fd.append('imgFile', pic);
+			$.ajax({
+				url:"__PUBLIC__/main/js/kindeditor/php/upload_json.php",
+				type:"post",
+				dataType:'json',
+				data: fd,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success:function(data){
+					if(data && data.error == '0'){
+						alert("上传成功");
+						var imgurl = data.url;
+						$("#"+divid).html('<img src="'+imgurl+'">');
+						otherimg = imgurl;
+						$("#" + hiddenid).val(imgurl);
+					}else{
+						alert(data.message);
+					}
+				},
+				error:function (){
+					alert(data.error);
+				}
+			});
+			isupload = false;
+		}
+		isupload = false;
+	}
+	function uploadImg2(hiddenid,divid,obj){
+		var filename = $(obj).val();
+		if(filename != '' && filename != null){
+			isupload = true;
+			var pic = $(obj)[0].files[0];
+			var fd = new FormData();
+			fd.append('imgFile', pic);
+			$.ajax({
+				url:"__PUBLIC__/main/js/kindeditor/php/upload_json.php",
+				type:"post",
+				dataType:'json',
+				data: fd,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success:function(data){
+					if(data && data.error == '0'){
+						alert("上传成功");
+						var imgurl = data.url;
+						$("#"+divid).html('<img src="'+imgurl+'">');
+						otherexcel = imgurl;
+						$("#" + hiddenid).val(imgurl);
+					}else{
+						alert(data.message);
+					}
+				},
+				error:function (){
+					alert(data.error);
+				}
+			});
+			isupload = false;
+		}
+		isupload = false;
+	}
+    function del(num,jumpurl){
+        layer.confirm(
+                '确定要删除:'+num+'吗?',
+                function (){
+                    window.location.href = "/index.php?g=Admin&m=Daikuan&a=del&sort_num="+jumpurl;
+                }
+        );
+    }
+    function changestatus2(ordernum,oid){
+  		$("#changestatus_div2").val(ordernum);
+    	$("#id2").val(oid);
+		
+		layer.open({
+		  	type: 1,
+		  	skin: 'layui-layer-rim', //加上边框
+		  	area: ['600px', '300px'], //宽高
+		  	content: $("#changestatus_div2").html(),
+		
+			btn: ['修改'],
+			btn1: function (index, layero)
+             {
+                var id = $(layero).find("#id2").val();
+				var process_content = $(layero).find("#process_content").val();
+				var process_states = $(layero).find("#process_states").val();
+				
+				if(id){
+					$.post(
+						"{:U(GROUP_NAME.'/Daikuan/savestatus2?sort_num=')}"+id,
+						{process_content:process_content,id:id,process_states:process_states},
+						function(data,state){
+							
+							if(data.status == 1){
+								layer.msg("更新成功!");
+								setTimeout(function(){
+									window.location.href = window.location.href;
+								},500);
+							}else{
+								layer.msg(data.msg);
+							}
+						}
+					);
+				}else{
+					layer.msg("操作错误请刷新在试!");
+				}
+					 }
+		});
+		$.post(
+			"{:U(GROUP_NAME.'/Daikuan/changestatus')}",
+			{oid:oid},
+			function(data,state){
+				
+				//$("input[name='name2']").val(data.name);
+				$("input[name='process_content']").val(data.process_content);
+				
+			}
+		);
+    }
+    function changestatus(ordernum,oid){
+    	$("#changestatus_span").val(ordernum);
+    	$("#id").val(oid);
+		layer.open({
+		  	type: 1,
+		  	skin: 'layui-layer-rim', //加上边框
+		  	area: ['600px', '500px'], //宽高
+		  	content: $("#changestatus_div").html(),
+			 btn: ['修改'],
+			  btn1: function (index, layero)
+             {
+                var id = $(layero).find("#id").val();
+				var name = $(layero).find("#name").val();
+				var	wechat = $(layero).find("#wechat").val();
+				var zhimafen = $(layero).find("#zhimafen").val();
+				var phone_number = $(layero).find("#phoneNumber").val();
+				var qq	= $(layero).find("#qq").val();
+				var data_from = $(layero).find("#dataFrom").val();
+					
+				if(id){
+					$.post(
+						"{:U(GROUP_NAME.'/Daikuan/savestatus?sort_num=')}"+id,
+						{name:name,wechat:wechat,zhimafen:zhimafen,phone_number:phone_number,qq:qq,data_from:data_from,otherexcel:otherexcel,otherimg:otherimg},
+						function(data,state){
+							if(data.status == 1){
+								layer.msg("更新成功!");
+								//setTimeout(function(){
+								//	window.location.href = window.location.href;
+								//},2000);
+							}else{
+								layer.msg(data.msg);
+							}
+						}
+					);
+				}else{
+					layer.msg("操作错误请刷新在试!");
+				}
+					 }
+		});
+		$.post(
+			"{:U(GROUP_NAME.'/Daikuan/changestatus')}",
+			{oid:oid},
+			function(data,state){
+				
+				$("input[name='name']").val(data.name);
+				$("input[name='wechat']").val(data.wechat);
+				$("input[name='zhimafen']").val(data.zhimafen);
+				$("input[name='phoneNumber']").val(data.phone_number);
+				$("input[name='qq']").val(data.qq);
+				$("input[name='dataFrom']").val(data.data_from);
+				
+			}
+		);
+    }
+  
+</script>
+<style>
+.layui-input{
+	width:90%;
+}
+.errdeo {
+	white-space: nowrap;
+	position: fixed;
+	top: -85%;
+	left: 50%;
+	padding: 6px 16px;
+	color: #fff;
+	font-size: 14px;
+	background: #000;
+	opacity: .8;
+	border-radius: 2px;
+	-webkit-transform: translateX(-50%) translateY(0);
+	transform: translateX(-50%) translateY(0);
+	z-index: 9;
+	height: 30px;
+	text-align: center;
+}
+</style>
+<div style="display: none;" id="changestatus_div">
+<br>
+    <div class="layui-form">
+			<div class="layui-form-item">
+				<label class="layui-form-label">姓名</label>
+				<div class="layui-input-block">
+					<input type="text" name="name" id="name" value=""  placeholder="请输入姓名" class="layui-input">
+					<input type="hidden" name="id" id="id" value="" >
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">微信号</label>
+				<div class="layui-input-block">
+					<input type="text" name="wechat" value=""  id="name" placeholder="微信号" class="layui-input">
+				</div>
+			</div>
+		
+			<div class="layui-form-item">
+				<label class="layui-form-label">芝麻分</label>
+				<div class="layui-input-block">
+					<input type="text" name="zhimafen" value="" id="zhimafen" placeholder="请输入芝麻分" class="layui-input">
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">电话</label>
+				<div class="layui-input-block">
+					<input type="text" name="phoneNumber" value="" id="phoneNumber" placeholder="请输入电话号码" class="layui-input">
+				</div>
+			</div>
+			
+		<!--	<div class="layui-form-item">
+				<label class="layui-form-label">QQ</label>
+				<div class="layui-input-block">
+					<input type="text" name="qq" value="" id="qq" placeholder="请输入QQ" class="layui-input">
+				</div>
+			</div>
+			-->
+			<div class="layui-form-item">
+				<label class="layui-form-label">数据来源</label>
+				
+				<div class="layui-input-block">
+				
+					<input type="text" name="dataFrom" value="" id="dataFrom" placeholder="请输入数据来源" class="layui-input">
+				</div>
+			</div>
+		<!--	<div class="layui-form-item">
+				<input type="hidden" id="otherimg" />
+				<label class="layui-form-label">添加图片</label>
+			
+					<input type="file" onChange="uploadImg('otherimg','sfz_sc_div',this);" />
+				
+			</div> -->
+			<div class="layui-form-item">
+				<input type="hidden" id="otherexcel" />
+				<label class="layui-form-label">添加文件</label>
+				<input type="file" onChange="uploadImg2('otherexcel','sfz_sc_div',this);" />
+			</div>
+			
+			
+		
+</div>
+
+<div style="display: none;" id="changestatus_div2">
+<br>
+    <div class="layui-form">
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">处理内容</label>
+				<div class="layui-input-block">
+					<input type="text" name="process_content" id="process_content" value=""  placeholder="请输入处理内容" class="layui-input">
+					<input type="hidden" name="id2" id="id2" value="" >
+				</div>
+			</div>
+			<div class="layui-form-item">
+			<label class="layui-form-label">审核状态</label>
+				<div class="layui-input-block" >
+					
+					<select class="layui-show" name="process_states" id="process_states">
+					<option value="取消">取消</option>					
+					<option value="未接">未接</option>
+					<option value="通过">通过</option>
+					<option value="拒绝">拒绝</option>
+					
+					
+					<option value="加微信">加微信</option>
+					</select>
+				</div>
+			</div>
+			<!--<button id="weijie" class="layui-form-label" style="background-color:#393D49;color:#fff">未接</button>&nbsp
+			<button id="buyao" class="layui-form-label" style="background-color:#1E9FFF;color:#fff">不要</button>&nbsp
+			<button id="set" class="layui-form-label" style="background-color:#2F4056;color:#fff">设置</button>&nbsp
+			<button id="jiawx" class="layui-form-label" style="background-color:#FF5722;color:#fff">加微信</button>
+		-->
+</div>
+
+<script type="text/javascript">
+$(function(){
+
+	
+	$("#allChoose").click(function(){
+		var flag = $("#allChoose").is(':checked');
+		if(!flag){
+			$(":checkbox").removeAttr("checked");//取消全选
+		}else{
+			$(":checkbox").attr("checked","true");
+		}
+	})
+	$("#delall").click(function(){
+		var adIds = "";
+		$(":checkbox:checked").each(function(i){  
+            if(0==i){  
+                adIds = $(this).attr('data');  
+            }else{  
+                adIds += (","+$(this).attr('data'));  
+            }
+			
+        });
+		
+		$.ajax({
+					url : "index.php?g=Admin&m=Daikuan&a=alldel",
+					type : "post",
+					data : {adIds:adIds},
+					success : function(ret) {
+						if (ret.success) {
+							//var qq=ret.data.qq;
+							
+							layer.msg("成功删除"+ret.msg+"条数据");
+							setTimeout(function(){
+								window.location.href = 'index.php?g=Admin&m=Daikuan&a=index';
+							},1000);
+							
+						} else {
+							layer.msg(ret.msg);
+							
+						}
+					},
+					error : function() {
+						layer.msg("提交错误");
+						
+					}
+				});
+	})
+	function salert(msg){
+		$('#messageBox').html(msg);
+		$('#messageBox').show();
+		setTimeout(function(){
+			$('#messageBox').hide();
+		},2000);
+	}
+	
+})
+</script>
