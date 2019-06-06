@@ -44,7 +44,7 @@
     </div> 
    
    </div> 
-   <?php if($adminlogin['gid'] < 3){ ?>
+   <?php if($adminlogin['gid'] ==1){ ?>
    <div class="nav_list"> 
     <div>
      <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Main/index');?>">
@@ -53,18 +53,17 @@
        <span class="arrow"> &gt; </span>
       </div>
 	  </a>
-    </div> 
-	
-		
-   
+    </div>
+
 	<div>
      <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/System/index');?>">
       <div class="item">
        系统设置 
        <span class="arrow"> &gt; </span>
       </div></a>
-    </div> 
-    
+    </div>
+    <?php } ?>
+<?php if($adminlogin['gid'] < 3){ ?>
 
 	<div>
      <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Admin/index');?>">
