@@ -104,9 +104,14 @@ class AdminAction extends CommonAction{
 			
             $_POST['addtime'] = time();
             $_POST['lastlogin'] = 0;
-			$_POST['gid'] =  $_POST['gid'];;
+			$_POST['gid'] =  $_POST['gid'];
             $_POST['password'] = $this->getpass($_POST['password']);
-            $_POST['is_super'] = 0;//渠道商
+            if($_POST['gid']==1){
+                $_POST['is_super'] = 1;//管理员
+            }else{
+                $_POST['is_super'] = 0;//渠道商
+            }
+
             $_POST['tpl'] = $_POST['tpl'];//模板
             $_POST['pid'] = 0;//所属渠道商id  0 表示父级渠道商
 
