@@ -241,6 +241,9 @@ class AdminAction extends CommonAction{
         $this->assign('adminlogin',$adminlogin);
         
         $this->data = $data;
+        $this->assign('is_super', $data['is_super']);
+        $this->assign('gid', $data['gid']);
+        $this->assign('style', $data['tpl']);
         $json = json_decode($data['auth'],true);
         $this->assign("json", $json);
         $this->display();
@@ -418,4 +421,7 @@ class AdminAction extends CommonAction{
         }
         $this->ajaxReturn($data);
     }
+
+
+
 }

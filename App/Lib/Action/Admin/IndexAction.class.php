@@ -138,4 +138,42 @@ class IndexAction extends CommonAction {
 
 		}
 	}
+    //注册渠道商
+    public function register(){
+        $Admin = D("admin");
+        $this->title = '添加用户';
+        if(IS_POST){
+            //添加
+            $validate = array(
+                array('username','require','管理员名称不能为空!'),
+                array('username','','管理员名称已经存在！',0,'unique',1),
+                array('password','require','管理员密码不能为空!'),
+                array('password_confirm','password','两次密码输入不一致!',0,'confirm'),
+            );
+            $Admin->setProperty("_validate",$validate);
+            if(!$Admin->create()){
+                $this->error($Admin->getError());
+            }
+
+            $_POST['addtime'] = time();
+            $_POST['lastlogin'] = 0;
+            $_POST['gid'] =  2;;
+            $_POST['password'] = $this->getpass($_POST['password']);
+            $_POST['is_super'] = 0;//渠道商
+            $_POST['tpl'] = 0;//模板
+            $_POST['pid'] = 0;//所属渠道商id  0 表示父级渠道商
+
+            $adminlogin = session('Admin_login');
+
+            $status = $Admin->add($_POST);
+
+            if(!$status){
+
+                $this->ajaxReturn('注册失败!');
+            }
+            $this->ajaxReturn('注册成功!');
+            $this->redirect(C('cfg_app').'/Home/Index/index');
+            exit;
+        }
+    }
 }

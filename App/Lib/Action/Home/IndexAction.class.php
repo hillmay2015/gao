@@ -382,5 +382,14 @@ class IndexAction extends CommonAction{
 			echo "<br>";
 		}
 	}
-	
+
+    /**
+     * 渠道商注册
+     */
+	public function register(){
+        $imgmoban= C("cfg_imgmoban");
+        $this->assign("imgmoban",$imgmoban);
+        $this->display();
+
+    }
 }
