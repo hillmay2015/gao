@@ -42,6 +42,16 @@ class IndexAction extends CommonAction{
        
     }
 
+
+    public function index1(){
+
+        $imgmoban= C("style_1");
+        $this->assign("imgmoban",$imgmoban);
+        $this->display();
+
+
+    }
+
 	public function doApply(){
 		$ret['success'] = 0;
 		if($_POST){
