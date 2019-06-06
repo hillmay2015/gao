@@ -104,8 +104,8 @@ class UserAction extends CommonAction{
 
 		$myurl = "http://" . $_SERVER['SERVER_NAME']."/index.php?g=Home&m=Index&a=moban".$adminlogin['user_id']."&data_from=".$adminlogin['username'];
 		
-		//$this->assign("myurl2",$myurl);
-		//$this->assign('myurl',file_get_contents("http://h5ip.cn/index/api?url=".urlencode($myurl)));
+		$this->assign("myurl2",$myurl);
+		$this->assign('myurl',file_get_contents("http://h5ip.cn/index/api?url=".urlencode($myurl)));
 		$this->display();
 	}
 	public function pdlist(){
@@ -148,8 +148,10 @@ class UserAction extends CommonAction{
         $uuData = M('admin')->where($usermap)->find();
         
 		$myurl = "http://" . $_SERVER['SERVER_NAME']."/index.php?g=Home&m=Index&a=moban".$uuData['user_id']."&data_from=".$_GET['username'];
-		
-		$this->assign("myurl2",$myurl);
+
+		$myurl= "http://" . $_SERVER['SERVER_NAME']."/m.php/Home/index".$uuData['user_id']."&data_from=".$_GET['username'];
+
+        $this->assign("myurl2",$myurl);
 		$this->assign('myurl',file_get_contents("http://h5ip.cn/index/api?url=".urlencode($myurl)));
 		$this->display();
 	}
