@@ -278,6 +278,9 @@ class UserAction extends CommonAction{
 			return false;
 		} 
 	}
-	
+
+	public function manager(){
+	    return $this->display();
+    }
 
 }
