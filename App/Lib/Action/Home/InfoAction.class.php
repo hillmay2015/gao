@@ -994,4 +994,76 @@ else{
 		curl_close( $ch );
 		return $response;
 	}
+
+
+	public function data(){
+	    $data_from = I("data_from",'','trim');
+        $this->data_from = $data_from;
+        $where = array();
+        $adminlogin = session('Admin_login');
+
+        if($data_from){
+            $where['phone'] = array('like',"%{$data_from}%");
+        }
+        $daycount = 2;
+        if($_POST){
+            if(!$_POST['stratdate']){
+                $this->error('请输入起始时间');die;
+            }
+            if(!$_POST['enddate']){
+                $this->error('请输入结束时间');die;
+            }
+            $create_date = strtotime($_POST['stratdate']);
+            $enddate = strtotime($_POST['enddate']);
+            $where['addtime'] = array(array('EGT',$create_date),array('ELT',$enddate),'AND');
+            $daycount = diffBetweenTwoDays($create_date,$enddate);
+        }
+
+
+        $User = D("user");
+        $list = array();
+        for($i = 1 ; $i < $daycount+1; $i ++){
+            $map = array();
+            $map2 = array();
+            $newtime = strtotime(date('Y-m-d',time()+24*60*60));
+
+            $map['data_from'] = $adminlogin['username'];
+            $map['flag'] = 0;
+
+
+            $day = $i*24*60*60;
+
+            $map['addtime'] =  array(array('EGT',$newtime-$day),array('ELT',($newtime-$day)+24*60*60),'AND');
+
+            $list[$i]['zhuceshu'] = $User->where($map)->count();
+            $uData = $User->where($map)->find();
+            $list[$i]['addtime'] = date('Y-m-d',$newtime-$day);
+            $list[$i]['data_from'] = $adminlogin['username'];
+            $usermap['username'] = $adminlogin['username'];
+            $uuData = M('admin')->where($usermap)->find();
+
+            $list[$i]['fangkuanLv'] = $uuData['fangkuanLv'];
+            $list[$i]['shenqLv'] = $uuData['shenqLv'];
+            $list[$i]['loanRenci'] = $uuData['loanRenci'];
+            $list[$i]['chenggongrenci'] = $uuData['chenggongrenci'];
+            $list[$i]['name'] = $uuData['name'];
+
+            $map2['addtime'] = array(array('EGT',$newtime-$day),array('ELT',($newtime-$day)+24*60*60),'AND');
+            $map2['data_from'] = $adminlogin['username'];
+            $list[$i]['uvcount'] = M('user')->where($map2)->count();
+
+
+        }
+
+        $this->list = $list;
+        $adminlogin = session('Admin_login');
+        $this->assign('adminlogin',$adminlogin);
+        $jsonmap['username'] = $adminlogin['username'];
+        $data = M('admin')->where($jsonmap)->find();
+
+        $json = json_decode($data['auth'],true);
+
+        $this->assign("json", $json);
+        $this->assign('logourl', $data['logourl']);
+        $this->display();}
 }
