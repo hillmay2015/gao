@@ -31,71 +31,72 @@
 </div>
     <!-- dcHead 结束 -->
     <html>
- <head>
-  <link rel="stylesheet" href="__PUBLIC__/static/bootstrap.min.css" /> 
-  <link rel="stylesheet" href="__PUBLIC__/static/mycss.css" /> 
- </head>
- <body>
-  <div class="left"> 
-   <div class="inner"> 
-    <div class="left_head"> 
-     <span style="color:#428bca"></span></a>
-     <br /> 
-    </div> 
-   
-   </div> 
-   <?php if($adminlogin['gid'] ==1){ ?>
-   <div class="nav_list"> 
-    <div>
-     <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Main/index');?>">
-      <div class="item">
-       首页 
-       <span class="arrow"> &gt; </span>
-      </div>
-	  </a>
-    </div>
-
-	<div>
-     <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/System/index');?>">
-      <div class="item">
-       系统设置 
-       <span class="arrow"> &gt; </span>
-      </div></a>
-    </div>
-    <?php } ?>
-
-    <?php if($adminlogin['gid'] < 3){ ?>
-
-	<div>
-     <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Admin/index');?>">
-      <div class="item">
-       后台管理员 
-       <span class="arrow"> &gt; </span>
-      </div></a>
-    </div>
-    <div>
-     <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/deldata');?>">
-      <div class="item">
-       数据回收站
-       <span class="arrow"> &gt; </span>
-      </div></a>
-    </div>
-
-<div>
-
-
-     <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/index2');?>">
-      <div class="item">
-       实时渠道数据	
-       <span class="arrow"> &gt; </span>
-      </div></a>
-    </div>
-
-    <?php } ?>
-    </div> 
-   </div> 
+<head>
+ <link rel="stylesheet" href="__PUBLIC__/static/bootstrap.min.css" />
+ <link rel="stylesheet" href="__PUBLIC__/static/mycss.css" />
+</head>
+<body>
+<div class="left">
+ <div class="inner">
+  <div class="left_head">
+   <span style="color:#428bca"></span></a>
+   <br />
   </div>
- </body>
+
+ </div>
+
+ <div class="nav_list">
+  <?php if($adminlogin['gid'] ==1){ ?>
+  <div>
+   <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Main/index');?>">
+    <div class="item">
+     首页
+     <span class="arrow"> &gt; </span>
+    </div>
+   </a>
+  </div>
+
+
+
+  <div>
+   <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/System/index');?>">
+    <div class="item">
+     系统设置
+     <span class="arrow"> &gt; </span>
+    </div></a>
+  </div>
+<?php } ?>
+  <?php if($adminlogin['gid'] < 3){ ?>
+  <div>
+   <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Admin/index');?>">
+    <div class="item">
+     后台管理员
+     <span class="arrow"> &gt; </span>
+    </div></a>
+  </div>
+  <div>
+   <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/deldata');?>">
+    <div class="item">
+     数据回收站
+     <span class="arrow"> &gt; </span>
+    </div></a>
+  </div>
+
+  <div>
+
+
+   <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/index2');?>">
+    <div class="item">
+     实时渠道数据
+     <span class="arrow"> &gt; </span>
+    </div></a>
+  </div>
+<?php } ?>
+
+ </div>
+</div>
+</div>
+</body>
 </html>
 
 

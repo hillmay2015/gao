@@ -46,6 +46,7 @@
  </div>
 
  <div class="nav_list">
+  <?php if($adminlogin['gid'] ==1){ ?>
   <div>
    <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Main/index');?>">
     <div class="item">
@@ -64,8 +65,8 @@
      <span class="arrow"> &gt; </span>
     </div></a>
   </div>
-
-
+<?php } ?>
+  <?php if($adminlogin['gid'] < 3){ ?>
   <div>
    <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Admin/index');?>">
     <div class="item">
@@ -80,7 +81,7 @@
      <span class="arrow"> &gt; </span>
     </div></a>
   </div>
- 
+
   <div>
 
 
@@ -90,7 +91,7 @@
      <span class="arrow"> &gt; </span>
     </div></a>
   </div>
-
+<?php } ?>
 
  </div>
 </div>
