@@ -109,12 +109,13 @@ class AdminAction extends CommonAction{
             $_POST['password'] = $this->getpass($_POST['password']);
             if($_POST['gid']==1){
                 $_POST['is_super'] = 1;//管理员
+                $_POST['pid'] = 0;//所属渠道商id  0 表示父级渠道商
             }else{
                 $_POST['is_super'] = 0;//渠道商
             }
 
             $_POST['tpl'] = $_POST['tpl'];//模板
-            $_POST['pid'] = 0;//所属渠道商id  0 表示父级渠道商
+
 
           	$adminlogin = session('Admin_login');
     
