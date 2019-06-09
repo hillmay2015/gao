@@ -81,6 +81,21 @@ class IndexAction extends CommonAction {
 		session(null);
 		$this->redirect(C('cfg_app').'/Home/Index/index');
 	}
+
+
+    public function logout1(){
+        $this->title="注销登录";
+        $this->setlogin('');
+        session(null);
+        $this->redirect(C('cfg_app').'/Home/Index/index1');
+    }
+
+    public function logout2(){
+        $this->title="注销登录";
+        $this->setlogin('');
+        session(null);
+        $this->redirect(C('cfg_app').'/Home/Index/index2');
+    }
 	/*public function daochu(){
 		$filename = '申请列表'.date('YmdHis');  
 		$header = array('编码','姓名','电话','qq','数据来源','芝麻分','微信号','年龄','创建日期','处理时间','状态');  

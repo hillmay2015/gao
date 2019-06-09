@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <!-- saved from url=(0042)http://twbk.twbaika.com/admin/unifiedLogin -->
 <html class="panel-fit"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 

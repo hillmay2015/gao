@@ -62,10 +62,6 @@ class IndexAction extends CommonAction
         $this->display();
     }
 
-    public function index3()
-    {
-        $this->display();
-    }
 
     public function doApply()
     {
