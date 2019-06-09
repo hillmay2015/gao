@@ -143,7 +143,6 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu" aria-labelledby="slidedown_btn">
                            <li style="cursor: pointer;"><a onclick="ModifyPwdShow()"><i class="fa fa-cog"></i> 更换密码</a></li>
-                            <text>您好，<?php echo session('username');?> </text>&nbsp;
                             <li style="cursor: pointer;"><a href="<?php echo C('cfg_app'); ?>/Home/User/logout"><i class="fa fa-sign-out"></i> 退出</a></li>
                         </ul>
                     </li>

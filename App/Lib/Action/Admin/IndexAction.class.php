@@ -42,23 +42,24 @@ class IndexAction extends CommonAction {
 					$msg['status'] = 1;
 					if($tmp['pid'] >0){//证明是推广员
 						$this->setLoginUser($username);
-						 session('Admin_login',$tmp); 
-						
-						$msg['url'] = C('cfg_app').'/Home/Info/index';
+						 session('Admin_login',$tmp);
+
+                        //根据 tpl值来判断是哪个走哪个模板
+                        if($tmp['tpl']==1){
+                            $msg['url'] = C('cfg_app').'/Home/Info/index';
+                        }
+
+                        if($tmp['tpl']==2){
+                            $msg['url'] = C('cfg_app').'/Home/Info/index2';
+                        }
 
 					}else{//证明是渠道商
 						$this->setlogin($username);
 						$Admin->where(array('username' => $username))
 						  ->save(array('lastlogin' => time() ));
-						  session('Admin_login',$tmp); 
-						  //根据 tpl值来判断是哪个走哪个模板 
-                       if($tmp['tpl']==1){
-                           $msg['url'] = C('cfg_app').'/Admin/User/index1';
-                       }
+						  session('Admin_login',$tmp);
 
-                        if($tmp['tpl']==2){
-                            $msg['url'] = C('cfg_app').'/Admin/User/index2';
-                        }
+                        $msg['url'] = C('cfg_app').'/Admin/User/index';
 
                     }
 
