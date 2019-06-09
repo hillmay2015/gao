@@ -105,6 +105,7 @@ class AdminAction extends CommonAction{
             $_POST['addtime'] = time();
             $_POST['lastlogin'] = 0;
 			$_POST['gid'] =  $_POST['gid'];
+            $_POST['pid'] =  $_POST['pid'];
             $_POST['password'] = $this->getpass($_POST['password']);
             if($_POST['gid']==1){
                 $_POST['is_super'] = 1;//管理员
@@ -130,7 +131,7 @@ class AdminAction extends CommonAction{
             $_POST['auth'] = json_encode($json);
 
             $status = $Admin->add($_POST);
-			//echo $Admin->getLastSql();  
+		//	echo $Admin->getLastSql();exit();
             if(!$status){
 				
                 $this->error('添加失败!');

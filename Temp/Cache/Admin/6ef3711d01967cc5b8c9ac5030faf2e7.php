@@ -247,7 +247,8 @@
 
                 <label>
 
-                    <?php if($is_super == 0): ?><input type="radio" name="gid" value="3" checked>
+                    <?php if($is_super == 0): ?><input type="hidden" name="pid" value="<?php echo ($pid); ?>">
+                        <input type="radio" name="gid" value="3" checked>
                         推广员<?php endif; ?>
 
                     <?php if($is_super == 1): ?><input type="radio" name="gid" value="1">
@@ -269,6 +270,27 @@
                     <input type="radio" name="tpl" value="2"> 风格2
                 </td>
             </tr><?php endif; ?>
+
+        <tr>
+            <td align="right">背景图</td>
+            <td>
+                <div id="list2">
+
+                    <label for="file">上传文件:</label>
+                    <input type="file" name="file" id="file" onChange="uploadImg2('payimg','imgdiv2',this);"><br/>
+                    <div id="imgdiv2">
+
+                        <img style="height: 200px" src="">
+
+                    </div>
+                    <input type="hidden" id="back_img" name="back_img" value="">
+
+
+            </td>
+
+
+        </tr>
+
         <tr>
             <td align="right">LOGO</td>
             <td>
@@ -502,6 +524,44 @@
                         var imgurl = data.url;
                         $("#" + imgdiv).html('<img style="height: 200px" src="' + imgurl + '">');
                         $("#logourl").val(imgurl);
+
+                    } else {
+                        alert(data.error);
+                    }
+                },
+                error: function () {
+                    alert(data.error);
+                }
+            });
+            isupload = false;
+        }
+        isupload = false;
+    }
+</script>
+
+<script>
+    function uploadImg2(hiddenid, imgdiv2, obj) {
+        var filename = $(obj).val();
+        if (filename != '' && filename != null) {
+            isupload = true;
+            var pic = $(obj)[0].files[0];
+            var fd = new FormData();
+            fd.append('imgFile', pic);
+
+            $.ajax({
+                url: "__PUBLIC__/main/js/kindeditor/php/upload_json.php",
+                type: "post",
+                dataType: 'json',
+                data: fd,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data && data.error == '0') {
+                        alert("上传成功");
+                        var imgurl = data.url;
+                        $("#" + imgdiv2).html('<img style="height: 200px" src="' + imgurl + '">');
+                        $("#back_img").val(imgurl);
 
                     } else {
                         alert(data.error);
