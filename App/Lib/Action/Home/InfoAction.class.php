@@ -21,7 +21,6 @@ class InfoAction extends CommonAction{
 		$this->data_from = $data_from;
 		$where = array();
       	$adminlogin = session('Admin_login');
-		
 		if($data_from){
 			$where['phone'] = array('like',"%{$data_from}%");
 		}
@@ -85,7 +84,12 @@ class InfoAction extends CommonAction{
 
         $this->assign("json", $json);
         $this->assign('logourl', $data['logourl']);
-		$this->display('index1');
+        if($adminlogin['tpl']==1){
+            $this->display('index1');
+        }else{
+            $this->display('index2');
+        }
+
 		
 	}
 	
