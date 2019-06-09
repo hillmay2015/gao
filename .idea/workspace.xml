@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Conf/Sale/config.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" afterPath="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html" afterPath="$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Base/Extend/Library/ORG/Util/Page.class.php" afterPath="$PROJECT_DIR$/Base/Extend/Library/ORG/Util/Page.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Admin/3a120902030c0610d7eb57164f2c562e.php" afterPath="$PROJECT_DIR$/Temp/Cache/Admin/3a120902030c0610d7eb57164f2c562e.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Admin/6ef3711d01967cc5b8c9ac5030faf2e7.php" afterPath="$PROJECT_DIR$/Temp/Cache/Admin/6ef3711d01967cc5b8c9ac5030faf2e7.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Admin/c274884a5eee77e1444528da2db8ffb7.php" afterPath="$PROJECT_DIR$/Temp/Cache/Admin/c274884a5eee77e1444528da2db8ffb7.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/ba1820ad5522dd12200e919c2846dde7.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/ba1820ad5522dd12200e919c2846dde7.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Logs/19_06_09.log" afterPath="$PROJECT_DIR$/Temp/Logs/19_06_09.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,12 +21,23 @@
       <file leaf-file-name="Admin_add.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-714">
-              <caret line="192" column="8" lean-forward="false" selection-start-line="192" selection-start-column="8" selection-end-line="192" selection-end-column="8" />
+            <state relative-caret-position="255">
+              <caret line="142" column="68" lean-forward="false" selection-start-line="142" selection-start-column="68" selection-end-line="142" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#!!top" expanded="true" />
-                <marker date="1560062255000" expanded="true" signature="13231:13244" ph="..." />
+                <marker date="1560062346000" expanded="true" signature="13293:13306" ph="..." />
+                <marker date="1560062346000" expanded="true" signature="14513:14526" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminAction.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="143" column="43" lean-forward="false" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,8 +102,8 @@
         <option value="$PROJECT_DIR$/App/Tpl/Home/Info_index1.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Admin/IndexAction.class.php" />
         <option value="$PROJECT_DIR$/Base/Conf/convention.php" />
-        <option value="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" />
         <option value="$PROJECT_DIR$/Base/Extend/Library/ORG/Util/Page.class.php" />
+        <option value="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" />
         <option value="$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html" />
       </list>
     </option>
@@ -433,12 +436,12 @@
       <workItem from="1560005900164" duration="3206000" />
       <workItem from="1560039019019" duration="2895000" />
       <workItem from="1560042266426" duration="6691000" />
-      <workItem from="1560062229699" duration="26000" />
+      <workItem from="1560062229699" duration="117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25867000" />
+    <option name="totallyTimeSpent" value="25958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
@@ -746,14 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/m.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -786,13 +781,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="143" column="43" lean-forward="false" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-714">
-          <caret line="192" column="8" lean-forward="false" selection-start-line="192" selection-start-column="8" selection-end-line="192" selection-end-column="8" />
+        <state relative-caret-position="255">
+          <caret line="142" column="68" lean-forward="false" selection-start-line="142" selection-start-column="68" selection-end-line="142" selection-end-column="68" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#!!top" expanded="true" />
-            <marker date="1560062255000" expanded="true" signature="13231:13244" ph="..." />
+            <marker date="1560062346000" expanded="true" signature="13293:13306" ph="..." />
+            <marker date="1560062346000" expanded="true" signature="14513:14526" ph="..." />
           </folding>
         </state>
       </provider>

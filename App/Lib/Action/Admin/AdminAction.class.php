@@ -141,6 +141,7 @@ class AdminAction extends CommonAction{
 		$adminlogin = session('Admin_login');
         $this->assign('adminlogin',$adminlogin);
         $this->assign('is_super',$adminlogin['is_super']);
+        $this->assign('pid',$adminlogin['id']);
         $this->display();
     }
 	// 设置组长
