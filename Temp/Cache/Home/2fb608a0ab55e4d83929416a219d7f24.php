@@ -167,7 +167,7 @@
 </div>
 <div id="index_layout" class="layout" style="width: 1918px; height: 805px;">
 
-    
+
     <!--左侧导航菜单-->
     <div class="panel layout-panel layout-panel-west layout-split-west" style="left: 0px; top: 0px; width: 155px;"><div class="panel-header" style="width: 141px;"><div class="panel-title">功能导航</div><div class="panel-tool"><a class="panel-tool-collapse" href="javascript:void(0)" style="display: none;"></a><a href="javascript:void(0)" class="layout-button-left"></a></div></div><div data-options="region:&#39;west&#39;,split:true" title="" style="width: 155px; overflow: hidden auto; height: 775px;" class="panel-noscroll panel-body layout-body">
         <div id="navview" class="easyui-accordion accordion accordion-noborder" data-options="fit:true,border:false" style="width: 155px; height: 775px;">
