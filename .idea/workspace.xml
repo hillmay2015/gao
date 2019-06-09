@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" afterPath="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html" afterPath="$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Admin/45bdab14632a0820a9802da5e53e1cda.php" afterPath="$PROJECT_DIR$/Temp/Cache/Admin/45bdab14632a0820a9802da5e53e1cda.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Admin/6ef3711d01967cc5b8c9ac5030faf2e7.php" afterPath="$PROJECT_DIR$/Temp/Cache/Admin/6ef3711d01967cc5b8c9ac5030faf2e7.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html" afterPath="$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Admin/f09ecb7d4bf4db22ee860e0a6929a864.php" afterPath="$PROJECT_DIR$/Temp/Cache/Admin/f09ecb7d4bf4db22ee860e0a6929a864.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Logs/19_06_09.log" afterPath="$PROJECT_DIR$/Temp/Logs/19_06_09.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="Admin_add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="142" column="43" lean-forward="false" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+            <state relative-caret-position="153">
+              <caret line="174" column="3" lean-forward="true" selection-start-line="174" selection-start-column="3" selection-end-line="192" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#!!top" expanded="true" />
                 <marker date="1560062649000" expanded="true" signature="13295:13308" ph="..." />
@@ -36,11 +34,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminAction.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Admin_edit.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="438">
+              <caret line="278" column="36" lean-forward="false" selection-start-line="278" selection-start-column="36" selection-end-line="278" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#!!top" expanded="true" />
+                <marker date="1560062944000" expanded="true" signature="8315:8328" ph="..." />
+                <marker date="1560062944000" expanded="true" signature="9535:9548" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminAction.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
+            <state relative-caret-position="425">
+              <caret line="133" column="10" lean-forward="false" selection-start-line="133" selection-start-column="10" selection-end-line="133" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -80,7 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/index_register.html" />
         <option value="$PROJECT_DIR$/App/Common/Admin/function.php" />
         <option value="$PROJECT_DIR$/App/Tpl/Admin/Public_left.html" />
@@ -109,6 +120,7 @@
         <option value="$PROJECT_DIR$/Base/Extend/Library/ORG/Util/Page.class.php" />
         <option value="$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" />
+        <option value="$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html" />
       </list>
     </option>
   </component>
@@ -440,12 +452,12 @@
       <workItem from="1560005900164" duration="3206000" />
       <workItem from="1560039019019" duration="2895000" />
       <workItem from="1560042266426" duration="6691000" />
-      <workItem from="1560062229699" duration="463000" />
+      <workItem from="1560062229699" duration="651000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26304000" />
+    <option name="totallyTimeSpent" value="26492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
@@ -481,11 +493,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Public/bg@3x.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/addlist-ico.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -785,10 +792,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="133" column="10" lean-forward="false" selection-start-line="133" selection-start-column="10" selection-end-line="133" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="142" column="43" lean-forward="false" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+        <state relative-caret-position="153">
+          <caret line="174" column="3" lean-forward="true" selection-start-line="174" selection-start-column="3" selection-end-line="192" selection-end-column="13" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#!!top" expanded="true" />
             <marker date="1560062649000" expanded="true" signature="13295:13308" ph="..." />
@@ -797,11 +812,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="438">
+          <caret line="278" column="36" lean-forward="false" selection-start-line="278" selection-start-column="36" selection-end-line="278" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#!!top" expanded="true" />
+            <marker date="1560062944000" expanded="true" signature="8315:8328" ph="..." />
+            <marker date="1560062944000" expanded="true" signature="9535:9548" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
