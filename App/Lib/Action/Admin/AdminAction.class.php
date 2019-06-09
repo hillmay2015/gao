@@ -70,7 +70,7 @@ class AdminAction extends CommonAction{
 
         $this->data = $list;
         $this->page = $show;
-		
+
 		$this->assign('adminlogin',$adminlogin);
       
         $qbmap['username'] = $adminlogin['username'];

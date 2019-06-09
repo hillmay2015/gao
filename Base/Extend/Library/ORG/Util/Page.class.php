@@ -58,7 +58,7 @@ class Page {
             $this->nowPage  =   $this->totalPages;
         }
         $this->firstRow     =   $this->listRows*($this->nowPage-1);
-        if(!empty($url))    $this->url  =   $url; 
+        if(!empty($url))    $this->url  =   $url;
     }
 
     public function setConfig($name,$value) {
@@ -75,7 +75,6 @@ class Page {
         if(0 == $this->totalRows) return '';
         $p              =   $this->varPage;
         $nowCoolPage    =   ceil($this->nowPage/$this->rollPage);
-
         // 分析分页参数
         if($this->url){
             $depr       =   C('URL_PATHINFO_DEPR');

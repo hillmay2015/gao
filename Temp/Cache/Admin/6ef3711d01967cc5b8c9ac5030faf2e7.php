@@ -63,7 +63,8 @@
       </div></a>
     </div>
     <?php } ?>
-<?php if($adminlogin['gid'] < 3){ ?>
+
+    <?php if($adminlogin['gid'] < 3){ ?>
 
 	<div>
      <a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Admin/index');?>">
@@ -79,7 +80,7 @@
        <span class="arrow"> &gt; </span>
       </div></a>
     </div>
-<?php } ?>
+
 <div>
 
 
@@ -88,9 +89,9 @@
        实时渠道数据	
        <span class="arrow"> &gt; </span>
       </div></a>
-    </div> 	
-		
-	
+    </div>
+
+    <?php } ?>
     </div> 
    </div> 
   </div>

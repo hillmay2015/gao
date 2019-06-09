@@ -63,7 +63,6 @@
         },2200);
     }
     $("#btn").click(function() {
-        alert('1111');
         var username=$('#name').val();
         var password=$('#password').val();
 
