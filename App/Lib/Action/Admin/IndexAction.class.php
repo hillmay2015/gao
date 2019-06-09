@@ -51,8 +51,16 @@ class IndexAction extends CommonAction {
 						$Admin->where(array('username' => $username))
 						  ->save(array('lastlogin' => time() ));
 						  session('Admin_login',$tmp); 
-						$msg['url'] = C('cfg_app').'/Admin/User/index';
-					}
+						  //根据 tpl值来判断是哪个走哪个模板 
+                       if($tmp['tpl']==1){
+                           $msg['url'] = C('cfg_app').'/Admin/User/index1';
+                       }
+
+                        if($tmp['tpl']==2){
+                            $msg['url'] = C('cfg_app').'/Admin/User/index2';
+                        }
+
+                    }
 
 					 session('Admin_login',$tmp); 
 					$this->ajaxReturn($msg);
