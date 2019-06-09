@@ -85,7 +85,7 @@ class InfoAction extends CommonAction{
 
         $this->assign("json", $json);
         $this->assign('logourl', $data['logourl']);
-		$this->display();
+		$this->display('index1');
 		
 	}
 	

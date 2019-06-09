@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/App/Tpl/Home/Info_index.html" afterPath="$PROJECT_DIR$/App/Tpl/Home/Info_index2.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Home/user_manager.html" afterPath="$PROJECT_DIR$/App/Tpl/Home/user_manager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/213901e6ee126fa8c46b7fb0e081f7ba.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/213901e6ee126fa8c46b7fb0e081f7ba.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/2fb608a0ab55e4d83929416a219d7f24.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/2fb608a0ab55e4d83929416a219d7f24.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php" afterPath="$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Logs/19_06_09.log" afterPath="$PROJECT_DIR$/Temp/Logs/19_06_09.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Info_index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index.html">
+      <file leaf-file-name="Info_index2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
-              <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -108,6 +107,36 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="UserAction.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/UserAction.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3519">
+              <caret line="259" column="30" lean-forward="true" selection-start-line="259" selection-start-column="30" selection-end-line="259" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InfoAction.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Info_index1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3795">
+              <caret line="161" column="25" lean-forward="false" selection-start-line="161" selection-start-column="12" selection-end-line="161" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Admin_add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,7 +149,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_manager.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_manager.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Home/user_manager.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -180,11 +209,11 @@
         <option value="$PROJECT_DIR$/App/Tpl/Home/info_index2.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/index_index3.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/info_data.html" />
-        <option value="$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/info_index.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Home/UserAction.class.php" />
-        <option value="$PROJECT_DIR$/App/Tpl/Home/Info_index.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/user_manager.html" />
+        <option value="$PROJECT_DIR$/App/Tpl/Home/Info_index.html" />
+        <option value="$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php" />
       </list>
     </option>
   </component>
@@ -501,12 +530,12 @@
       <workItem from="1559790379376" duration="13024000" />
       <workItem from="1560004717204" duration="25000" />
       <workItem from="1560005900164" duration="3206000" />
-      <workItem from="1560039019019" duration="31000" />
+      <workItem from="1560039019019" duration="446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16286000" />
+    <option name="totallyTimeSpent" value="16701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1368" height="797" extended-state="0" />
@@ -836,33 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
-          <caret line="161" column="25" lean-forward="false" selection-start-line="161" selection-start-column="12" selection-end-line="161" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Tpl/Home/info_data.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2329">
           <caret line="137" column="9" lean-forward="false" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="999" column="8" lean-forward="false" selection-start-line="999" selection-start-column="8" selection-end-line="999" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/UserAction.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="259" column="30" lean-forward="true" selection-start-line="259" selection-start-column="30" selection-end-line="259" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -873,10 +879,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index.html">
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="40" />
+          <folding>
+            <marker date="1559787952000" expanded="true" signature="12707:12720" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/user_manager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -915,24 +942,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Admin/Admin_add.html">
+    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/UserAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="40" />
-          <folding>
-            <marker date="1559787952000" expanded="true" signature="12707:12720" ph="..." />
-          </folding>
+        <state relative-caret-position="3519">
+          <caret line="259" column="30" lean-forward="true" selection-start-line="259" selection-start-column="30" selection-end-line="259" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/user_manager.html">
+    <entry file="file://$PROJECT_DIR$/App/Lib/Action/Home/InfoAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="527">
+          <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Info_index1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3795">
+          <caret line="161" column="25" lean-forward="false" selection-start-line="161" selection-start-column="12" selection-end-line="161" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
