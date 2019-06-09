@@ -75,6 +75,16 @@ class UserAction extends CommonAction{
 		$this->setLoginUser('');
 		$this->redirect(C('cfg_app')."/Home/Index/index");
 	}
+    //注销登陆 模板1
+    public function logout1(){
+        $this->setLoginUser('');
+        $this->redirect(C('cfg_app')."/Home/Index/index1");
+    }
+    //注销登陆 模板2
+    public function logout2(){
+        $this->setLoginUser('');
+        $this->redirect(C('cfg_app')."/Home/Index/index2");
+    }
 	
 	//用户注册
 	public function signup(){

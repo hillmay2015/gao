@@ -138,11 +138,12 @@
             <div class="menu-right">
                 <ul class="notification-menu nt-menu">
                     <li>
-                        <a style="width: 134px;height: 48px;" id="slidedown_btn" href="<?php echo C('cfg_app'); ?>/Home/User/logout" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <a style="width: 134px;height: 48px;" id="slidedown_btn" href="<?php echo C('cfg_app'); ?>/Home/User/logout1" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                            <span class="caret">退出</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu" aria-labelledby="slidedown_btn">
                            <li style="cursor: pointer;"><a onclick="ModifyPwdShow()"><i class="fa fa-cog"></i> 更换密码</a></li>
+                            <text>您好，<?php echo session('username');?> </text>&nbsp;
                             <li style="cursor: pointer;"><a href="<?php echo C('cfg_app'); ?>/Home/User/logout"><i class="fa fa-sign-out"></i> 退出</a></li>
                         </ul>
                     </li>
