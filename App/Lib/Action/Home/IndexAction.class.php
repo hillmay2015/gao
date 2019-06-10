@@ -288,7 +288,7 @@ class IndexAction extends CommonAction
         $where['moban'] = $admin['name'];
         $where['data_from'] = $_GET['data_from'];
         $count = M('user')->where($where)->find();
-        $r['url'] = $url;
+        $r['url'] = $admin['url'];
         $r['success'] = 1;
         if (!$count) {
             M('user')->add($data);

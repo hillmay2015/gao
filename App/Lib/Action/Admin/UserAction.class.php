@@ -61,7 +61,7 @@ class UserAction extends CommonAction
         $adminlogin = session('Admin_login');
         $this->assign('adminlogin', $adminlogin);
 
-        $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban&data_from=" . $adminlogin['username'];
+        $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban/data_from=" . $adminlogin['username'];
 
         if ($adminlogin['tpl'] > 0) {
             $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index" . $adminlogin['tpl'];//推广员登录链接
@@ -170,7 +170,7 @@ class UserAction extends CommonAction
 
         //$myurl = "http://" . $_SERVER['SERVER_NAME']."/index.php?g=Home&m=Index&a=moban".$uuData['user_id']."&data_from=".$_GET['username'];
 
-        $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban" . $uuData['user_id'] . "&data_from=" . $_GET['username'];
+        $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban/data_from" . $_GET['username'];
         
         if ($uuData['tpl'] > 0) {
             $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index" . $uuData['tpl'];//推广员登录链接
