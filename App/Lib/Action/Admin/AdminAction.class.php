@@ -117,6 +117,7 @@ class AdminAction extends CommonAction{
             $_POST['tpl'] = $_POST['tpl'];//模板
 
 
+
           	$adminlogin = session('Admin_login');
     
             $json['date_time'] = $_POST['date_time'];
@@ -214,6 +215,7 @@ class AdminAction extends CommonAction{
                     'loanRenci' => $_POST['loanRenci'],
                     'chenggongrenci' => $_POST['chenggongrenci'],
                     'logourl' => $_POST['logourl'],
+                    'back_img' => $_POST['back_img'],
                      'tpl' => $_POST['tpl']
 
                 );
