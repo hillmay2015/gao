@@ -115,8 +115,8 @@
 <div class="filter">
     <form action="<?php echo C('cfg_app'); ?>/Admin/User/pdlist/username/<?php echo ($data_from); ?>" method="post">
         <input name="data_from" id="data_from" type="hidden" class="inpMain" value="<?php echo ($data_from); ?>" size="20" />
-        <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php echo date('Y-m-d');?>" style="height: 32px; font-size:18px"/>
-          <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php echo date('Y-m-d',time()+24*60*60);?>" style="height: 32px; font-size:18px"/>
+        <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php if($start_date){ echo $start_date ;} else { echo date('Y-m-d') ;}?>" style="height: 32px; font-size:18px"/>
+          <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php if($end_date){ echo $end_date ;} else { echo date('Y-m-d',time()+24*60*60) ;}?>" style="height: 32px; font-size:18px"/>
         <input name="submit" class="btnGray" type="submit" class="layui-btn" value="筛选" />
          <span class="layui-btn" id="daochu">导出</span> 
     </form>
@@ -149,7 +149,7 @@
                    
                     <td align="center"><?php echo (date('Y-m-d H:i:s',$vo["addtime"])); ?></td>
                      <td align="center">
-                       <a href="javascript:del('<?php echo ($vo["phone"]); ?>','<?php echo U(GROUP_NAME.'/User/del',array('id'=>$vo['id']));?>');">删除</a>
+                       <a href="javascript:del('<?php echo ($vo["phone"]); ?>','<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/del',array('id'=>$vo['id']));?>');">删除</a>
                        </td>
                
                 </tr><?php endforeach; endif; else: echo "" ;endif; ?>
@@ -174,7 +174,7 @@
          if(enddate == ""){
              layer.msg("结束时间不能为空");return;
         }
-        window.location.href = 'index.php?g=Admin&m=User&a=daochu&data_from='+data_from+"&stratdate="+stratdate+"&enddate="+enddate;
+        window.location.href = 'm.php/Admin/User/daochu/data_from/'+data_from+"&stratdate/"+stratdate+"&enddate/"+enddate;
     })
     $("#delall").click(function(){
         var adIds = "";
@@ -188,7 +188,7 @@
         });
         
         $.ajax({
-                    url : "index.php?g=Admin&m=User&a=alldel",
+                    url : "m.php/Admin/User/alldel",
                     type : "post",
                     data : {adIds:adIds},
                     success : function(ret) {
@@ -197,7 +197,7 @@
                             
                             layer.msg("成功删除"+ret.msg+"条数据");
                             setTimeout(function(){
-                                window.location.href = 'index.php?g=Admin&m=User&a=pdlist&username=<?php echo $_GET['username'] ?>';
+                                window.location.href = 'm.php/Admin/User/pdlist/username=<?php echo $_GET['username'] ?>';
                             },1000);
                             
                         } else {

@@ -181,6 +181,8 @@ class UserAction extends CommonAction
         $this->assign("myurl2", $myurl);
         $this->assign('myurl', file_get_contents("http://h5ip.cn/index/api?url=" . urlencode($myurl)));
         $this->assign('login_url', $login_url);
+        $this->assign('start_date',$_POST['stratdate']);
+        $this->assign('end_date',$_POST['enddate']);
         $this->display();
     }
 
@@ -501,7 +503,7 @@ class UserAction extends CommonAction
             $index[$i]['addtime'] = date('Y-m-d H:i:s', $index[$i]['addtime']);
 
         }
-        //echo $Order->getLastSql();die;
+     //   echo $Order->getLastSql();die;
         $this->exportexcel($index, $header, $filename);
     }
 
