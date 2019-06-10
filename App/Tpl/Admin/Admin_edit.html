@@ -167,8 +167,15 @@
             <tr>
                 <td align="right">模板风格</td>
                 <td>
-                    <input type="radio" name="tpl" value="1" if($data.tpl==1){ checked }> 风格1
-                    <input type="radio" name="tpl" value="2" if($data.tpl==2){ checked }> 风格2
+                    <if condition="$style eq 1">
+                        <input type="radio" name="tpl" value="1" if($data.tpl==1){ checked }> 风格1
+                        <input type="radio" name="tpl" value="2" > 风格2
+                    </if>
+
+                    <if condition="$style eq 2">
+                        <input type="radio" name="tpl" value="1" > 风格1
+                        <input type="radio" name="tpl" value="2" if($data.tpl==2){ checked }> 风格2
+                    </if>
                 </td>
             </tr>
         </if>
