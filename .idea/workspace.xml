@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Home/Index_index.html" afterPath="$PROJECT_DIR$/App/Tpl/Home/Index_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/8736d67d56905ff7ef653348323ad50d.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/8736d67d56905ff7ef653348323ad50d.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Logs/19_06_10.log" afterPath="$PROJECT_DIR$/Temp/Logs/19_06_10.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,8 +40,8 @@
       <file leaf-file-name="Index_index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="96" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="96" selection-end-column="7" />
+            <state relative-caret-position="155">
+              <caret line="73" column="14" lean-forward="true" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -448,12 +446,12 @@
       <workItem from="1560128010070" duration="2076000" />
       <workItem from="1560135240437" duration="1560000" />
       <workItem from="1560137999150" duration="828000" />
-      <workItem from="1560156708981" duration="1461000" />
+      <workItem from="1560156708981" duration="1581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33105000" />
+    <option name="totallyTimeSpent" value="33225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="803" extended-state="6" />
@@ -797,8 +795,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="96" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="96" selection-end-column="7" />
+        <state relative-caret-position="155">
+          <caret line="73" column="14" lean-forward="true" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
           <folding />
         </state>
       </provider>
