@@ -113,7 +113,7 @@
 <link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
 
 <div class="filter">
-    <form action="<?php echo U(GROUP_NAME.'/User/pdlist');?>&username=<?php echo ($data_from); ?>" method="post">
+    <form action="<?php echo C('cfg_app'); ?>/Admin/User/pdlist/username/<?php echo ($data_from); ?>" method="post">
         <input name="data_from" id="data_from" type="hidden" class="inpMain" value="<?php echo ($data_from); ?>" size="20" />
         <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php echo date('Y-m-d');?>" style="height: 32px; font-size:18px"/>
           <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php echo date('Y-m-d',time()+24*60*60);?>" style="height: 32px; font-size:18px"/>
