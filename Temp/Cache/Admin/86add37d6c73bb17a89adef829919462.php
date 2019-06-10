@@ -161,7 +161,7 @@
                      <?php if($adminlogin['gid'] == 1){ ?> 
                    <td align="center"><?php echo ($vo["yao_phone"]); ?></td>
                      <td align="center">
-                       <a href="javascript:del('<?php echo ($vo["phone"]); ?>','<?php echo U(GROUP_NAME.'/User/del',array('id'=>$vo['id']));?>');">删除</a>
+                       <a href="javascript:del('<?php echo ($vo["phone"]); ?>','<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/del',array('id'=>$vo['id']));?>');">删除</a>
                        </td>
                  <?php } ?> 
                 </tr><?php endforeach; endif; else: echo "" ;endif; ?>

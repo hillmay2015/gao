@@ -84,7 +84,7 @@
         });
         
         $.ajax({
-                    url : "m.php/Admin/User/alldel",
+            url : "index.php?g=Admin&m=User&a=alldel",
                     type : "post",
                     data : {adIds:adIds},
                     success : function(ret) {
@@ -93,7 +93,7 @@
                             
                             layer.msg("成功删除"+ret.msg+"条数据");
                             setTimeout(function(){
-                                window.location.href = 'm.php/Admin/User/pdlist/username=<php>echo $_GET['username']</php>';
+                                window.location.href = 'index.php?g=Admin&m=User&a=pdlist&username=<php>echo $_GET['username']</php>';
                             },1000);
                             
                         } else {

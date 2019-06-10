@@ -58,7 +58,7 @@
                 if($adminlogin['gid'] == 1){ </php> 
                    <td align="center">{$vo.yao_phone}</td>
                      <td align="center">
-                       <a href="javascript:del('{$vo.phone}','{:U(GROUP_NAME.'/User/del',array('id'=>$vo['id']))}');">删除</a>
+                       <a href="javascript:del('{$vo.phone}','<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/User/del',array('id'=>$vo['id']))}');">删除</a>
                        </td>
                  <php>}</php> 
                 </tr>
