@@ -269,7 +269,7 @@
                 <td>
                     <?php if($style == 1): ?><input type="radio" name="tpl" value="1" if($data.tpl==1){ checked }> 风格1
                         <input type="radio" name="tpl" value="2" > 风格2<?php endif; ?>
-                    
+
                     <?php if($style == 2): ?><input type="radio" name="tpl" value="1" > 风格1
                         <input type="radio" name="tpl" value="2" if($data.tpl==2){ checked }> 风格2<?php endif; ?>
                 </td>

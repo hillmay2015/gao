@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!DOCTYPE html>
 <!-- saved from url=(0067)http:/zxhadmin.kfsmaff.com/channelmanagement/channeldatastatistics -->
 <html>
 <head lang="en">
@@ -25,10 +25,10 @@
 
     <script src="__PUBLIC__/moban/MyPlayer.js"></script>
 
-
     <title>
-        <?php echo C('cfg_sitename') ?>
+        <php>echo C('cfg_sitename')</php>
     </title>
+
 
 </head>
 
@@ -36,12 +36,12 @@
 
 <div class="left-side sticky-left-side">
     <a href="#">
-        <img src="<?php echo ($logourl); ?>" style="width:100px;margin:20px 0 0 20px;">
+        <img src="{$logourl}" style="width:100px;margin:20px 0 0 20px;">
     </a>
     <div class="left-side-inner">
         <ul class="nav nav-pills nav-stacked custom-nav js-left-nav">
-            <li class="menu-list nav-active"><a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Info/index');?>"><span>渠道管理</span></a></li>
-            <li class="menu-list "><a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/pdlist');?>"><span>渠道数据统计</span></a></li>
+            <li class="menu-list "><a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Info/index')}"><span>渠道管理</span></a></li>
+            <li class="menu-list nav-active"><a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/User/pdlist')}"><span>渠道数据统计</span></a></li>
         </ul>
     </div>
 </div>
@@ -77,9 +77,9 @@
                                 <form id="searchForm2" action="<?php echo C('cfg_app'); ?>/Home/Info/index"
                                       method="POST">
                                     <ul class="nav pull-left">
+
                                         <li class="pull-left">
-                                            <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php if($start_date){ echo $start_date ;} else { echo date('Y-m-d') ;}?>" style="height: 32px; font-size:18px"/>
-                                            <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php if($end_date){ echo $end_date ;} else { echo date('Y-m-d',time()+24*60*60) ;}?>" style="height: 32px; font-size:18px"/>
+                                           <input name="username" value="" placeholder="请输入用户名" >
                                         </li>
 
                                         <li class="pull-left">
@@ -94,42 +94,23 @@
                                     <table class="table table-hover table-striped table_thead_fixed"
                                            style="min-width:1450px;">
                                         <thead>
-
-
                                         <tr>
-                                            <?php if($json["date_time"] == 1 ): ?><th>日期</th><?php endif; ?>
-                                            <?php if($json["qudaoname"] == 1 ): ?><th>渠道名</th><?php endif; ?>
-                                            <?php if($json["uvcount"] == 1 ): ?><th>UV量</th><?php endif; ?>
-                                            <?php if($json["zhucecount"] == 1 ): ?><th>注册量</th><?php endif; ?>
-                                            <?php if($json["shimingcount"] == 1 ): ?><th>实名认证</th><?php endif; ?>
-                                            <?php if($json["loancount"] == 1 ): ?><th>申请借款人数</th><?php endif; ?>
-                                            <?php if($json["succcount"] == 1 ): ?><th>申请成功人数</th><?php endif; ?>
-                                            <?php if($json["loanlv"] == 1 ): ?><th>借款率%</th><?php endif; ?>
-                                            <?php if($json["tongguolv"] == 1 ): ?><th>通过率%</th><?php endif; ?>
-                                            <?php if($json["caozuo"] == 1 ): ?><th>操作</th><?php endif; ?>
+                                            <th width="80" align="center">ID</th>
+                                            <th width="120" align="center">注册时间</th>
+                                            <th width="120" align="center">IP</th>
+                                            <th width="120" align="center">渠道名称</th>
+                                            <th width="120" align="center">用户名</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                                                <?php if($json["date_time"] == 1 ): ?><td><?php echo ($vo["addtime"]); ?></td><?php endif; ?>
-                                                <?php if($json["qudaoname"] == 1 ): ?><td><?php echo ($vo["name"]); ?></td><?php endif; ?>
-                                                <?php if($json["uvcount"] == 1 ): ?><td><?php echo ($vo["uvcount"]); ?></td><?php endif; ?>
-                                                <?php if($json["zhucecount"] == 1 ): ?><td><?php echo ($vo["zhuceshu"]); ?></td><?php endif; ?>
-                                                <?php if($json["shimingcount"] == 1 ): ?><td> <?php
- $shiming = floor($vo['zhuceshu']*$vo['shenqLv']/100); echo $shiming; ?>
-
-                                                    </td><?php endif; ?>
-                                                <?php if($json["loancount"] == 1 ): ?><td><?php $loanRenci = floor($shiming*$vo['loanRenci']/100);echo $loanRenci; ?></td><?php endif; ?>
-                                                <?php if($json["succcount"] == 1 ): ?><td><?php $chenggongrenci = floor($loanRenci*$vo['chenggongrenci']/100); echo $chenggongrenci; ?></td><?php endif; ?>
-                                                <?php if($json["loanlv"] == 1 ): ?><td><?php $jiekuanlv = round($loanRenci/$vo['zhuceshu']*100 , 2); echo $jiekuanlv; ?> %
-                                                    </td><?php endif; ?>
-                                                <?php if($json["tongguolv"] == 1 ): ?><td><?php $chenggongrenci = round($chenggongrenci/$vo['zhuceshu']*100 , 2); echo $chenggongrenci; ?> %
-                                                    </td><?php endif; ?>
-                                                <?php if($json["caozuo"] == 1 ): ?><td>
-                                                        <a href="<?php echo C('cfg_app'); ?>/Home/User/pdlist/data_from/<?php echo ($adminlogin['username']); ?>/stratdate/<?php echo ($vo["addtime"]); ?>">查看</a>
-                                                    </td><?php endif; ?>
-                                                </td>
-                                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                                        <volist name="list" id="vo">
+                                            <tr>
+                                              <td>{$vo.id}</td>
+                                                <td>{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+                                                <td>{$vo.yao_phone}</td>
+                                                <td>{$vo.data_from}</td>
+                                            </tr>
+                                        </volist>
 
                                         </tbody>
                                         <tfoot>

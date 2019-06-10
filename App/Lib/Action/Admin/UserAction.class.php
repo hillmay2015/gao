@@ -126,8 +126,6 @@ class UserAction extends CommonAction
         $this->assign('myurl', file_get_contents("http://h5ip.cn/index/api?url=" . urlencode($myurl)));
         $this->assign('start_date',$_POST['stratdate']);
         $this->assign('end_date',$_POST['enddate']);
-        $this->assign('start_date',$_POST['stratdate']);
-
         $this->display();
     }
 
@@ -358,7 +356,6 @@ class UserAction extends CommonAction
             $create_date = strtotime($_POST['stratdate']);
             $enddate = strtotime($_POST['enddate']);
             $where['addtime'] = array(array('EGT', $create_date), array('ELT', $enddate), 'AND');
-            $where['data_from'] = $_POST['data_from'];
         }
 
         $User = D("del");
@@ -373,7 +370,8 @@ class UserAction extends CommonAction
 
         $adminlogin = session('Admin_login');
         $this->assign('adminlogin', $adminlogin);
-        $this->assign('data_from', $_GET['username']);
+        $this->assign('start_date',$_POST['stratdate']);
+        $this->assign('end_date',$_POST['enddate']);
         $this->display();
     }
 

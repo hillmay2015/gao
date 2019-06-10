@@ -237,7 +237,7 @@
 
 
                 <label>
-                    <input type="text" name="url" value="<?php echo ($is_super); ?>" size="80" class="inpMain">
+                    <input type="text" name="url" value="" size="80" class="inpMain">
 
                 </label>
             </td>

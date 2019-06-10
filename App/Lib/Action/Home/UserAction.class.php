@@ -293,4 +293,63 @@ class UserAction extends CommonAction{
 	    return $this->display();
     }
 
+    /**
+     * 推广员实时渠道查看数据
+     */
+    public function pdlist(){
+
+        $where['data_from'] = $_GET['username'];
+        if ($_GET) {
+            if (!$_GET['stratdate']) {
+                $this->error('请输入起始时间');
+                die;
+            }
+            $create_date = strtotime($_GET['stratdate']);
+            $enddate = strtotime($_GET['startdate'])+24*60*60;//表示开始时间加一天的时间
+            $where['addtime'] = array(array('EGT', $create_date), array('ELT', $enddate), 'AND');
+            $where['data_from'] = $_GET['data_from'];
+        }
+
+
+        $User = D("user");
+        import('ORG.Util.Page');
+
+        $sjcount = $User->where($where)->count();
+        $where['flag'] = 0;
+        $count = $User->where($where)->count();
+
+        $Page = new Page($count, 25);
+        $Page->setConfig('theme', '共%totalRow%条记录 | 第 %nowPage% / %totalPage% 页 %upPage%  %linkPage%  %downPage%');
+        $show = $Page->show();
+        $list = $User->where($where)->order('addtime Desc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
+
+        $this->list = $list;
+        $this->page = $show;
+
+        $adminlogin = session('Admin_login');
+        $this->assign('adminlogin', $adminlogin);
+        $this->assign('data_from', $_GET['username']);
+        $this->assign("kouliangcount", $count);
+        $this->assign("sjcount", $sjcount);
+        $usermap['username'] = $_GET['username'];
+        $uuData = M('admin')->where($usermap)->find();
+
+        //$myurl = "http://" . $_SERVER['SERVER_NAME']."/index.php?g=Home&m=Index&a=moban".$uuData['user_id']."&data_from=".$_GET['username'];
+
+        $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban/data_from/" . $_GET['username'];
+
+        if ($uuData['tpl'] > 0) {
+            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index" . $uuData['tpl'];//推广员登录链接
+        } else {
+            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index";//渠道商和管理员登录链接
+        }
+
+        $this->assign("myurl2", $myurl);
+        $this->assign('myurl', file_get_contents("http://h5ip.cn/index/api?url=" . urlencode($myurl)));
+        $this->assign('login_url', $login_url);
+        $this->assign('start_date',$_POST['stratdate']);
+        $this->assign('end_date',$_POST['enddate']);
+        $this->display();
+
+    }
 }

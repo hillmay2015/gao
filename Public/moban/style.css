@@ -1,0 +1,177 @@
+.pull-left select {
+    height: 30px !important
+}
+
+.form-control:focus, #focusedInput {
+    border: 1px solid #599ef4;
+    box-shadow: none;
+}
+
+.form-control {
+    display: inline-block;
+}
+
+.loan_pop label {
+    font-weight: normal;
+    color: black;
+}
+
+.loan_pop textarea {
+    padding-left: 15px;
+}
+
+.boxShade {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.loan_pop .pop_con {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.loan_pop .het {
+    height: 120px !important;
+    overflow-y: auto;
+}
+
+.loan_pop .het1 {
+    height: 164px !important;
+    overflow-y: auto;
+}
+
+.loan_pop .het2 {
+    height: 294px !important;
+    overflow-y: auto;
+}
+
+.loan_pop .wet {
+    width: 360px !important;
+}
+
+.loan_pop.wet1 {
+    width: 450px !important;
+}
+
+.loan_pop.wet2 {
+    width: 720px !important;
+}
+
+.loan_pop .set {
+    width: 200px !important;
+    height: 36px !important;
+    font-size: 13px !important;;
+}
+
+.loan_pop .loan_pop_inp {
+    width: 200px;
+    height: 36px;
+    font-size: 13px;
+}
+
+.loan_pop .hintBtn1 {
+    width: 60px;
+    height: 28px;
+    float: right !important;
+    margin: 7px 10px 0 0 !important;
+    border: 1px solid #ccc !important;
+    background-color: white !important;
+    color: black !important;
+}
+
+.loan_pop .pop_con_inner p {
+    display: inline-block;
+}
+
+.loan_pop .hintBtn2 {
+    width: 60px;
+    height: 28px;
+    float: right !important;
+    margin: 7px 10px 0 0 !important;
+}
+
+.loan_pop .hintFoot {
+    border: 1px solid #ccc !important;
+    border-top: none !important;
+    height: 40px;
+}
+
+.loan_pop .hintFoot1 {
+    border: 1px solid #ccc !important;
+    border-top: none !important;
+    height: 46px;
+}
+
+.loan_pop .pop_con_inner i {
+    display: inline-block !important;
+    float: left !important;
+    margin: 0 !important;
+}
+
+.loan_pop .pop_con_inner b {
+    font-weight: normal;
+    font-size: 13px;
+    position: relative;
+    top: 0px;
+    left: 10px;
+    line-height: 24px;
+}
+
+.loan_pop .mgt {
+    margin-top: 10px !important;
+}
+
+.loan_pop .pop_con textarea {
+    margin: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 80px;
+}
+
+.pull-left input {
+    width: 155px;
+}
+
+.table-wrap-tip td,
+.table-wrap-tip th {
+    padding: 5px;
+    text-align: center;
+}
+.form-control.mgt.loan_pop_inp.price_ipt {
+    width: 87px;
+    margin-left: 8px;
+}
+
+h6.count_level {
+    line-height: 16px;
+    font-size: 14px;
+}
+
+.separator {
+    margin-left: 8px;
+}
+
+h1, h6 {
+    display: inline-block;
+    font-weight: normal
+}
+
+#source_list:hover, #source_list:visited {
+    background-color: #599ef4;
+    border-color: #599ef4;
+}
+
+.addChannel .loan_pop .set {
+    width: 232px !important;
+    margin-right: 15px;
+}
+
+.addChannel .loan_pop #sourceUrl {
+    width: 400px !important;
+}
