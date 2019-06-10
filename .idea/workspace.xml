@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" afterPath="$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php" />
-    </list>
+    <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +28,7 @@
       <file leaf-file-name="AdminAction.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="-3194">
               <caret line="217" column="50" lean-forward="false" selection-start-line="217" selection-start-column="50" selection-end-line="217" selection-end-column="50" />
               <folding />
             </state>
@@ -425,12 +423,12 @@
       <workItem from="1560128010070" duration="2076000" />
       <workItem from="1560135240437" duration="1560000" />
       <workItem from="1560137999150" duration="828000" />
-      <workItem from="1560156708981" duration="838000" />
+      <workItem from="1560156708981" duration="874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32482000" />
+    <option name="totallyTimeSpent" value="32518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="803" extended-state="6" />
@@ -770,7 +768,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/AdminAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="-3194">
           <caret line="217" column="50" lean-forward="false" selection-start-line="217" selection-start-column="50" selection-end-line="217" selection-end-column="50" />
           <folding />
         </state>
