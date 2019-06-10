@@ -122,8 +122,8 @@
     </form>
 </div>
 <textarea class="layui-textarea">我的短链接：<?php echo ($myurl); ?>    
-我得长链接：<?php echo ($myurl2); ?><br>
-我的后台登录链接:<?php echo ($url_login); ?>
+我得长链接：<?php echo ($myurl2); ?>
+我的后台登录链接:<?php echo ($login_url); ?>
 </textarea>
 <span>实际用户量：<?php echo ($sjcount); ?> </span> <span>扣量数量：<?php echo ($kouliangcount); ?></span>
 <div id="list">

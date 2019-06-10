@@ -163,9 +163,9 @@ class UserAction extends CommonAction
         //$myurl = "http://" . $_SERVER['SERVER_NAME']."/index.php?g=Home&m=Index&a=moban".$uuData['user_id']."&data_from=".$_GET['username'];
 
         $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index" . $uuData['user_id'] . "&data_from=" . $_GET['username'];
-
-        if ($adminlogin['tpl'] > 0) {
-            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index" . $adminlogin['tpl'];//推广员登录链接
+        
+        if ($uuData['tpl'] > 0) {
+            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index" . $uuData['tpl'];//推广员登录链接
         } else {
             $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index";//渠道商和管理员登录链接
         }
