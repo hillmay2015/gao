@@ -20,10 +20,11 @@ class AdminAction extends CommonAction{
         if(IS_POST){
             $uname = I('username','','trim');
             if($uname){
-                $where['name'] = array('like',"%{$uname}%");
+                $where['username'] = array('like',"%{$uname}%");
                 $this->seach_name = $uname;
             }
         }
+
 //      	if($adminlogin['username'] != "admin"){
 //        	$where['user_id'] = $adminlogin['username'];
 //        }
