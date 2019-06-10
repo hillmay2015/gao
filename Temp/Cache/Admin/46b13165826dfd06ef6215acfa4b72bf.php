@@ -125,7 +125,7 @@
 
 <textarea class="layui-textarea">我的短链接：<?php echo ($myurl); ?>    
 我得长链接：<?php echo ($myurl2); ?>
-    
+
 我的后台登录链接: <?php echo ($login_url); ?>
 </textarea>
 <div id="list">
