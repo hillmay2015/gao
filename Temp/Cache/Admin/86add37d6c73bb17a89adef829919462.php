@@ -113,9 +113,9 @@
 <link rel="stylesheet" href="__PUBLIC__/static/libs/layui/css/layui.css">
 <div class="filter">
     <form action="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/index2');?>" method="post">
-        <input name="data_from" id="data_from" type="text" class="inpMain" value="<?php echo ($data_from); ?>" size="20" placeholder="手机号码查询" />
-       <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php echo date('Y-m-d');?>" style="height: 32px; font-size:18px"/>
-          <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php echo date('Y-m-d',time()+24*60*60);?>" style="height: 32px; font-size:18px"/>
+        <input name="data_from" id="data_from" type="text" class="inpMain" value="<?php echo ($data_from); ?>" size="20" placeholder="用户名查询" />
+        <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php if($start_date){ echo $start_date ;} else { echo date('Y-m-d') ;}?>" style="height: 32px; font-size:18px"/>
+        <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php if($end_date){ echo $end_date ;} else { echo date('Y-m-d',time()+24*60*60) ;}?>" style="height: 32px; font-size:18px"/>
         <input name="submit" type="submit" class="layui-btn" value="筛选" />
       <?php if($adminlogin['gid'] == 1){ ?>  
                 <span class="layui-btn" id="daochu">导出</span> 

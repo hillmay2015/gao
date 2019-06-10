@@ -85,7 +85,7 @@ class UserAction extends CommonAction
         $adminlogin = session('Admin_login');
 
         if ($data_from) {
-            $where['phone'] = array('like', "%{$data_from}%");
+            $where['username'] = array('like', "%{$data_from}%");
         }
         if ($_POST) {
             if (!$_POST['stratdate']) {
@@ -123,6 +123,10 @@ class UserAction extends CommonAction
 
         $this->assign("myurl2", $myurl);
         $this->assign('myurl', file_get_contents("http://h5ip.cn/index/api?url=" . urlencode($myurl)));
+        $this->assign('start_date',$_POST['stratdate']);
+        $this->assign('end_date',$_POST['enddate']);
+        $this->assign('start_date',$_POST['stratdate']);
+        $this->assign('phone',$_POST['enddate']);
         $this->display();
     }
 

@@ -70,8 +70,8 @@
          if(enddate == ""){
              layer.msg("结束时间不能为空");return;
         }
-        window.location.href = 'm.php/Admin/User/daochu/data_from/'+data_from+"&stratdate/"+stratdate+"&enddate/"+enddate;
-    })
+       window.location.href = 'index.php?g=Admin&m=User&a=daochu&data_from='+data_from+"&stratdate="+stratdate+"&enddate="+enddate;
+   })
     $("#delall").click(function(){
         var adIds = "";
         $(":checkbox:checked").each(function(i){  
