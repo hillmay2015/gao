@@ -85,7 +85,7 @@ class UserAction extends CommonAction
         $adminlogin = session('Admin_login');
 
         if ($data_from) {
-            $where['username'] = array('like', "%{$data_from}%");
+            $where['phone'] = array('like', "%{$data_from}%");
         }
         if ($_POST) {
             if (!$_POST['stratdate']) {
@@ -104,6 +104,7 @@ class UserAction extends CommonAction
             $where['data_from'] = $adminlogin['username'];
             $where['flag'] = 0;
         }
+
         $User = D("user");
         import('ORG.Util.Page');
         $count = $User->where($where)->count();
@@ -126,7 +127,7 @@ class UserAction extends CommonAction
         $this->assign('start_date',$_POST['stratdate']);
         $this->assign('end_date',$_POST['enddate']);
         $this->assign('start_date',$_POST['stratdate']);
-        $this->assign('phone',$_POST['enddate']);
+
         $this->display();
     }
 
