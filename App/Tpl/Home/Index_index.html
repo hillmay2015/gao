@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0033)http://zxhadmin.kfsmaff.com/login -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <title>登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="author" content="">
@@ -13,22 +15,29 @@
         .help-block {
             color: red;
         }
-        body{
-            background-color: {:C('cfg_bg')} !important;
+
+        body {
+
+        background-color: {: C('cfg_bg')
+        }
+
+        !important
+        ;
         }
     </style>
 </head>
 <body class="login-body" style="">
 <div class="container">
-    <form class="form-signin" method="post" action="#"  novalidate="novalidate">
+    <form class="form-signin" method="post" action="#" novalidate="novalidate">
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">登录</h1>
         </div>
         <div class="login-wrap">
             <input id="name" type="text" class="form-control" name="username" placeholder="请填写用户名" autofocus="">
             <input id="password" type="password" class="form-control" name="password" placeholder="请填写密码">
-            
+
             <input type="button" class="btn btn-lg btn-login btn-block" id="btn" value="登录">
+            <input type="button" class="btn btn-lg btn-login btn-block" id="btn_register" value="注册">
         </div>
     </form>
 </div>
@@ -37,46 +46,52 @@
 <script src="__PUBLIC__/home/js/jquery.js"></script>
 <script src="__PUBLIC__/home/js/fontsizeset.js"></script>
 <script src="__PUBLIC__/home/js/mui.min.js"></script>
-    <div style="display: none;top:45%" class="errdeo" id="messageBox">
-            
-    </div>
+<div style="display: none;top:45%" class="errdeo" id="messageBox">
+
+</div>
 <script>
-    function tishi(str){
+    function tishi(str) {
         $('#messageBox').text(str);
         $('#messageBox').show();
-        setTimeout(function(){
+        setTimeout(function () {
             $('#messageBox').hide();
-        },2200);
+        }, 2200);
     }
-$("#btn").click(function() {
-    var username=$('#name').val();
-    var password=$('#password').val();
-   
- 
-    if (password.length==0) {
-        tishi('请输入密码');
-        return false;
-    }
-    $.post(
-        "<?php echo C('cfg_app'); ?>/Admin/Index/login",
-        {
-            username:username,
-            password:password
-        },
-        function (data,state){
-            if(state != "success"){
-                tishi('网络请求失败,请重试');
-                return false;
-            }else if(data.status != 1){
-                tishi('帐号或密码错误');
-            }else{
-                //登录成功
-                window.location.href = data.url;
-            }
-        }
-    );
-});
+    $("#btn").click(function () {
+        var username = $('#name').val();
+        var password = $('#password').val();
 
+
+        if (password.length == 0) {
+            tishi('请输入密码');
+            return false;
+        }
+        $.post(
+            "<?php echo C('cfg_app'); ?>/Admin/Index/login",
+            {
+                username: username,
+                password: password
+            },
+            function (data, state) {
+                if (state != "success") {
+                    tishi('网络请求失败,请重试');
+                    return false;
+                } else if (data.status != 1) {
+                    tishi('帐号或密码错误');
+                } else {
+                    //登录成功
+                    window.location.href = data.url;
+                }
+            }
+        );
+    });
+
+    $("#btn_register").click(function () {
+        var url = "<?php echo C('cfg_app'); ?>/Home/Index/register";
+        window.location.href = url;
+
+    });
 </script>
 
-</body></html>
+</body>
+</html>
