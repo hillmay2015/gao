@@ -293,7 +293,7 @@ class IndexAction extends CommonAction
 
         $data['moban'] = $admin['name'];
         $data['addtime'] = time();
-        $where['yao_phone'] = $_SERVER['REMOTE_ADDR'];
+        $where['yao_phone'] = time();
         $where['moban'] = $admin['name'];
         $where['data_from'] = $_GET['data_from'];
         $count = M('user')->where($where)->find();

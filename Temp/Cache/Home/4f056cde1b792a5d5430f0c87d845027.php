@@ -41,7 +41,7 @@
     <div class="left-side-inner">
         <ul class="nav nav-pills nav-stacked custom-nav js-left-nav">
             <li class="menu-list nav-active"><a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/Info/index');?>"><span>渠道管理</span></a></li>
-            <li class="menu-list "><a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/pdlist');?>"><span>渠道数据统计</span></a></li>
+            <!--<li class="menu-list "><a href="<?php echo C('cfg_app'); echo U(GROUP_NAME.'/User/pdlist');?>"><span>渠道数据统计</span></a></li>-->
         </ul>
     </div>
 </div>
@@ -126,7 +126,8 @@
                                                 <?php if($json["tongguolv"] == 1 ): ?><td><?php $chenggongrenci = round($chenggongrenci/$vo['zhuceshu']*100 , 2); echo $chenggongrenci; ?> %
                                                     </td><?php endif; ?>
                                                 <?php if($json["caozuo"] == 1 ): ?><td>
-                                                        <a href="<?php echo C('cfg_app'); ?>/Home/User/pdlist/data_from/<?php echo ($adminlogin['username']); ?>/stratdate/<?php echo ($vo["addtime"]); ?>">查看</a>
+                                                        <a href="#">查看</a>
+                                                        <!--<a href="<?php echo C('cfg_app'); ?>/Home/User/pdlist/data_from/<?php echo ($adminlogin['username']); ?>/stratdate/<?php echo ($vo["addtime"]); ?>">查看</a>-->
                                                     </td><?php endif; ?>
                                                 </td>
                                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>

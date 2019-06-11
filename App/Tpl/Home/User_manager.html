@@ -3,8 +3,8 @@
 </head><body><div class="filter">
     <form action="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/User/manager')}" method="post">
 
-        <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain" value="2019-06-08" style="height: 32px; font-size:18px">
-        <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain" value="2019-06-09" style="height: 32px; font-size:18px">
+        <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php if($start_date){ echo $start_date ;} else { echo date('Y-m-d') ;}?>" style="height: 32px; font-size:18px"/>
+        <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php if($end_date){ echo $end_date ;} else { echo date('Y-m-d',time()+24*60*60) ;}?>" style="height: 32px; font-size:18px"/>
         <input name="submit" type="submit" class="easyui-linkbutton" value="筛选">
 
     </form>

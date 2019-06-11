@@ -36,6 +36,8 @@ class InfoAction extends CommonAction{
 	      	$enddate = strtotime($_POST['enddate']);
 	      	$where['addtime'] = array(array('EGT',$create_date),array('ELT',$enddate),'AND');
 	      	$daycount = diffBetweenTwoDays($create_date,$enddate);
+	      	$this->assign('start_date',$_POST['stratdate']);
+            $this->assign('end_date',$_POST['enddate']);
       	}
       	
       
