@@ -64,7 +64,7 @@ class UserAction extends CommonAction
         $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban/data_from/" . $adminlogin['username'];
 
         if ($adminlogin['tpl'] > 0) {
-            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index" . $adminlogin['tpl'];//推广员登录链接
+            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index" . $adminlogin['tpl'].'/data_from/'.$_GET['username'];//推广员登录链接
         } else {
             $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index";//渠道商和管理员登录链接
         }
@@ -176,7 +176,7 @@ class UserAction extends CommonAction
         $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban/data_from/" . $_GET['username'];
         
         if ($uuData['tpl'] > 0) {
-            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index" . $uuData['tpl'];//推广员登录链接
+            $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index" . $uuData['tpl'].'/data_from/'.$_GET['username'];//推广员登录链接
         } else {
             $login_url = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/index";//渠道商和管理员登录链接
         }
