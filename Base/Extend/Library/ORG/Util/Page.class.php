@@ -99,6 +99,7 @@ class Page {
         //上下翻页字符串
         $upRow          =   $this->nowPage-1;
         $downRow        =   $this->nowPage+1;
+        $url=C('cfg_app').$url;
         if ($upRow>0){
             $upPage     =   "<a href='".str_replace('__PAGE__',$upRow,$url)."'>".$this->config['prev']."</a>";
         }else{
