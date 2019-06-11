@@ -1,13 +1,13 @@
 <?php
 class UserAction extends CommonAction{
-	
+
 	public function index(){
 		//判断是否已登录
 		$user = $this->getLoginUser();
 		$this->user = $user;
 		$this->display();
 	}
-	
+
 	//用户登录
 	public function login(){
 		if(IS_POST){
@@ -69,7 +69,7 @@ class UserAction extends CommonAction{
 		}
 		$this->display();
 	}
-	
+
 	//注销登陆
 	public function logout(){
 		$this->setLoginUser('');
@@ -85,7 +85,7 @@ class UserAction extends CommonAction{
         $this->setLoginUser('');
         $this->redirect(C('cfg_app')."/Home/Index/index2");
     }
-	
+
 	//用户注册
 	public function signup(){
 		if(IS_POST){
@@ -95,7 +95,7 @@ class UserAction extends CommonAction{
 			$code = I("code",'','trim');
 			$phone = I("phone",'','trim');
 			$yao_phone = I("yao_phone",'','trim');
-			
+
 			//再次验证手机号
 			if(!checkphone($phone)){
 				$data['msg'] = "手机号不符合规范!";
@@ -110,7 +110,7 @@ class UserAction extends CommonAction{
 				//验证短信验证码
 				$Smscode = D("Smscode");
 				$info = $Smscode->where(array('phone' => $phone))->order("sendtime desc")->find();
-				
+
 					$password = sha1(md5($password));
 					$arr = array(
 						'phone' => $phone,
@@ -132,7 +132,7 @@ class UserAction extends CommonAction{
 		}
 		$this->display();
 	}
-	
+
 	//发送验证码
 	public function sendsmscode(){
 		$data = array('status' => 0);
@@ -275,10 +275,10 @@ class UserAction extends CommonAction{
 				  return "curl error".$result[1];
 			}
 		}elseif(function_exists('file_get_contents')){
-			
+
 			$output=file_get_contents($url.$data);
 			$result=preg_split("/[,\r\n]/",$output);
-		
+
 			if($result[1]==0){
 				  return "success";
 			}else{
@@ -286,10 +286,77 @@ class UserAction extends CommonAction{
 			}
 		}else{
 			return false;
-		} 
+		}
 	}
 
 	public function manager(){
+        $data_from = I("data_from",'','trim');
+        $this->data_from = $data_from;
+        $where = array();
+        $adminlogin = session('Admin_login');
+        if($data_from){
+            $where['phone'] = array('like',"%{$data_from}%");
+        }
+        $daycount = 2;
+        if($_POST){
+            if(!$_POST['stratdate']){
+                $this->error('请输入起始时间');die;
+            }
+            if(!$_POST['enddate']){
+                $this->error('请输入结束时间');die;
+            }
+            $create_date = strtotime($_POST['stratdate']);
+            $enddate = strtotime($_POST['enddate']);
+            $where['addtime'] = array(array('EGT',$create_date),array('ELT',$enddate),'AND');
+            $daycount = diffBetweenTwoDays($create_date,$enddate);
+        }
+
+
+        $User = D("user");
+        $list = array();
+        for($i = 1 ; $i < $daycount+1; $i ++){
+            $map = array();
+            $map2 = array();
+            $newtime = strtotime(date('Y-m-d',time()+24*60*60));
+
+            $map['data_from'] = $adminlogin['username'];
+            $map['flag'] = 0;
+
+
+            $day = $i*24*60*60;
+
+            $map['addtime'] =  array(array('EGT',$newtime-$day),array('ELT',($newtime-$day)+24*60*60),'AND');
+
+            $list[$i]['zhuceshu'] = $User->where($map)->count();
+            $uData = $User->where($map)->find();
+            $list[$i]['addtime'] = date('Y-m-d',$newtime-$day);
+            $list[$i]['data_from'] = $adminlogin['username'];
+            $usermap['username'] = $adminlogin['username'];
+            $uuData = M('admin')->where($usermap)->find();
+
+            $list[$i]['fangkuanLv'] = $uuData['fangkuanLv'];
+            $list[$i]['shenqLv'] = $uuData['shenqLv'];
+            $list[$i]['loanRenci'] = $uuData['loanRenci'];
+            $list[$i]['chenggongrenci'] = $uuData['chenggongrenci'];
+            $list[$i]['name'] = $uuData['name'];
+
+            $map2['addtime'] = array(array('EGT',$newtime-$day),array('ELT',($newtime-$day)+24*60*60),'AND');
+            $map2['data_from'] = $adminlogin['username'];
+            $list[$i]['uvcount'] = M('user')->where($map2)->count();
+
+
+        }
+
+        $this->list = $list;
+        $adminlogin = session('Admin_login');
+        $this->assign('adminlogin',$adminlogin);
+        $jsonmap['username'] = $adminlogin['username'];
+        $data = M('admin')->where($jsonmap)->find();
+
+        $json = json_decode($data['auth'],true);
+
+        $this->assign("json", $json);
+        $this->assign('logourl', $data['logourl']);
 	    return $this->display();
     }
 

@@ -41,7 +41,7 @@
     <div class="left-side-inner">
         <ul class="nav nav-pills nav-stacked custom-nav js-left-nav">
             <li class="menu-list nav-active"><a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/Info/index')}"><span>渠道管理</span></a></li>
-            <li class="menu-list "><a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/User/pdlist')}"><span>渠道数据统计</span></a></li>
+            <!--<li class="menu-list "><a href="<?php echo C('cfg_app'); ?>{:U(GROUP_NAME.'/User/pdlist')}"><span>渠道数据统计</span></a></li>-->
         </ul>
     </div>
 </div>
@@ -171,7 +171,8 @@
                                                 </if>
                                                 <if condition="$json.caozuo eq 1 ">
                                                     <td>
-                                                        <a href="<?php echo C('cfg_app'); ?>/Home/User/pdlist/data_from/{$adminlogin['username']}/stratdate/{$vo.addtime}">查看</a>
+                                                        <a href="#">查看</a>
+                                                        <!--<a href="<?php echo C('cfg_app'); ?>/Home/User/pdlist/data_from/{$adminlogin['username']}/stratdate/{$vo.addtime}">查看</a>-->
                                                     </td>
                                                 </if>
                                                 </td>

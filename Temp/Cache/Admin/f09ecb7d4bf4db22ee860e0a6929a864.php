@@ -287,7 +287,7 @@
                         <img style="height: 200px" src="">
 
                     </div>
-                    <input type="hidden" id="back_img" name="back_img" value="">
+                    <input type="hidden" id="back_img" name="back_img" value="<?php echo ($data["back_img"]); ?>">
 
 
             </td>

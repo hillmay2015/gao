@@ -12,20 +12,90 @@
 
 <div id="list">
     <table width="80%" border="0" cellpadding="8" cellspacing="0" class="layui-table">
-        <tbody><tr>
-            <th width="5" align="center">ID</th>
-
-            <th width="80" align="center">统计日期</th>
-
-            <th width="150" align="left">渠道名称</th>
-
-
-            <th width="120" align="center">注册量</th>
-
-
+        <thead>
+        <tr>
+            <if condition="$json.date_time eq 1 ">
+                <th>日期</th>
+            </if>
+            <if condition="$json.qudaoname eq 1 ">
+                <th>渠道名</th>
+            </if>
+            <if condition="$json.uvcount eq 1 ">
+                <th>UV量</th>
+            </if>
+            <if condition="$json.zhucecount eq 1 ">
+                <th>注册量</th>
+            </if>
+            <if condition="$json.shimingcount eq 1 ">
+                <th>实名认证</th>
+            </if>
+            <if condition="$json.loancount eq 1 ">
+                <th>申请借款人数</th>
+            </if>
+            <if condition="$json.succcount eq 1 ">
+                <th>申请成功人数</th>
+            </if>
+            <if condition="$json.loanlv eq 1 ">
+                <th>借款率%</th>
+            </if>
+            <if condition="$json.tongguolv eq 1 ">
+                <th>通过率%</th>
+            </if>
+            <if condition="$json.caozuo eq 1 ">
+                <th>操作</th>
+            </if>
         </tr>
-        <input type="hidden" value="1">
-        </tbody></table>
+        <tbody>
+        <volist name="list" id="vo">
+            <tr>
+                <if condition="$json.date_time eq 1 ">
+                    <td>{$vo.addtime}</td>
+                </if>
+                <if condition="$json.qudaoname eq 1 ">
+                    <td>{$vo.name}</td>
+                </if>
+                <if condition="$json.uvcount eq 1 ">
+                    <td>{$vo.uvcount}</td>
+                </if>
+                <if condition="$json.zhucecount eq 1 ">
+                    <td>{$vo.zhuceshu}</td>
+                </if>
+                <if condition="$json.shimingcount eq 1 ">
+                    <td> <?php
+                                         $shiming = floor($vo['zhuceshu']*$vo['shenqLv']/100);
+                                         echo $shiming;
+                                        ?>
+
+                    </td>
+                </if>
+                <if condition="$json.loancount eq 1 ">
+                    <td><?php $loanRenci = floor($shiming*$vo['loanRenci']/100);echo $loanRenci; ?></td>
+                </if>
+                <if condition="$json.succcount eq 1 ">
+                    <td><?php $chenggongrenci = floor($loanRenci*$vo['chenggongrenci']/100);
+                                         echo $chenggongrenci; ?></td>
+                </if>
+                <if condition="$json.loanlv eq 1 ">
+                    <td><?php $jiekuanlv = round($loanRenci/$vo['zhuceshu']*100 , 2);
+                                         echo $jiekuanlv; ?> %
+                    </td>
+                </if>
+                <if condition="$json.tongguolv eq 1 ">
+                    <td><?php $chenggongrenci = round($chenggongrenci/$vo['zhuceshu']*100 , 2);
+                                         echo $chenggongrenci; ?> %
+                    </td>
+                </if>
+                <if condition="$json.caozuo eq 1 ">
+                    <td>
+                        <a href="#">查看</a>
+                    </td>
+                </if>
+                </td>
+            </tr>
+        </volist>
+
+        </tbody>
+        </table>
 </div>
 
 <div class="clear"></div>
