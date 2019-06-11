@@ -299,6 +299,13 @@ class UserAction extends CommonAction{
     public function pdlist(){
 
         $where['data_from'] = $_GET['username'];
+        //渠道数据统计
+
+        //页面内查询
+
+
+        //单日期查询
+
         if ($_GET) {
             if (!$_GET['stratdate']) {
                 $this->error('请输入起始时间');
@@ -334,7 +341,6 @@ class UserAction extends CommonAction{
         $usermap['username'] = $_GET['username'];
         $uuData = M('admin')->where($usermap)->find();
 
-        //$myurl = "http://" . $_SERVER['SERVER_NAME']."/index.php?g=Home&m=Index&a=moban".$uuData['user_id']."&data_from=".$_GET['username'];
 
         $myurl = "http://" . $_SERVER['SERVER_NAME'] . "/m.php/Home/Index/moban/data_from/" . $_GET['username'];
 

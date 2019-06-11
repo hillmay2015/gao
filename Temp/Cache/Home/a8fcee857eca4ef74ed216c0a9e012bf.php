@@ -74,12 +74,15 @@
                     <div class="col-md-12">
                         <div class="panel panel_border">
                             <div class="panel_heading">
-                                <form id="searchForm2" action="<?php echo C('cfg_app'); ?>/Home/Info/index"
+                                <form id="searchForm2" action="<?php echo C('cfg_app'); ?>/Home/User/pdlist"
                                       method="POST">
                                     <ul class="nav pull-left">
 
                                         <li class="pull-left">
-                                           <input name="username" value="" placeholder="请输入用户名" >
+                                           <input name="phone" value="" placeholder="请输入查询手机号" >
+                                            <input name="stratdate" type="date" id="stratdate" placeholder="申请起始时间" class="inpMain"   value="<?php if($start_date){ echo $start_date ;} else { echo date('Y-m-d') ;}?>" style="height: 32px; font-size:18px"/>
+                                            <input name="enddate" type="date" id="enddate" placeholder="申请截止时间" class="inpMain"   value="<?php if($end_date){ echo $end_date ;} else { echo date('Y-m-d',time()+24*60*60) ;}?>" style="height: 32px; font-size:18px"/>
+
                                         </li>
 
                                         <li class="pull-left">
@@ -96,17 +99,20 @@
                                         <thead>
                                         <tr>
                                             <th width="80" align="center">ID</th>
-                                            <th width="120" align="center">注册时间</th>
+                                            <th width="120" align="center">产品名称</th>
+                                            <th width="120" align="center">手机号</th>
                                             <th width="120" align="center">IP</th>
+                                            <th width="120" align="center">注册时间</th>
                                             <th width="120" align="center">渠道名称</th>
-                                            <th width="120" align="center">用户名</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                                               <td><?php echo ($vo["id"]); ?></td>
-                                                <td><?php echo (date('Y-m-d H:i:s',$vo["addtime"])); ?></td>
+                                                <td ><?php echo ($vo["moban"]); ?></td>
+                                                <td ><?php echo ($vo["phone"]); ?></td>
                                                 <td><?php echo ($vo["yao_phone"]); ?></td>
+                                                <td><?php echo (date('Y-m-d H:i:s',$vo["addtime"])); ?></td>
                                                 <td><?php echo ($vo["data_from"]); ?></td>
                                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
 

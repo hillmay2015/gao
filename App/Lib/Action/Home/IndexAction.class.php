@@ -52,13 +52,22 @@ class IndexAction extends CommonAction
 
     public function index1()
     {
-
+        $username=$_GET['data_from'];
+        $where['username']=$username;
+        $Admin = D("admin");
+        $user= $Admin->where($where)->find();
+        $this->assign('user',$user);
         $this->display();
 
     }
 
     public function index2()
     {
+        $username=$_GET['data_from'];
+        $where['username']=$username;
+        $Admin = D("admin");
+        $user= $Admin->where($where)->find();
+        $this->assign('user',$user);
         $this->display();
     }
 
@@ -293,7 +302,6 @@ class IndexAction extends CommonAction
         if (!$count) {
             M('user')->add($data);
         }
-
         header('Location: ' . $admin['url']);
         die;
 

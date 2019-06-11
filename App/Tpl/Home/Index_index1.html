@@ -16,14 +16,24 @@
 
 </head>
 <body>
+<if condition="empty($user['back_img']) eq true">
 <div class="picimg" style="background-color:rgb(255, 255, 255);background-image:url(&#39;__PUBLIC__/lanrenjiekuan/back.jpg&#39;); "> </div>
-<div class="qlogo-Box">
+</if>
+<if condition="empty($user['back_img']) neq true">
+    <div class="picimg" style="background-color:rgb(255, 255, 255);background-image:url('{$user['back_img']}'); "> </div>
+</if>
+    <div class="qlogo-Box">
     <span class="qspan"></span>
     <div class="qContent-login">
         <h2 class="ft qChina"></h2>
         <p class="ft qEnglish"></p>
         <div class="bj2">
+            <if condition="empty($user['logourl']) neq true">
+                <img class="loginlogo" src="{$user['logourl']}">
+            </if>
+            <if condition="empty($user['logourl']) eq true">
             <img class="loginlogo" src="__PUBLIC__/lanrenjiekuan/loginlogo.png">
+            </if>
             <form id="loginform" method="post" action="#">
                 <div class="qinfo-logo">
                     <table>
