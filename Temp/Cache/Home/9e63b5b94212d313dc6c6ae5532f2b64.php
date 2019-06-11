@@ -17,16 +17,16 @@
 </head>
 <body>
 <?php if(empty($user['back_img']) == true): ?><div class="picimg" style="background-color:rgb(255, 255, 255);background-image:url(&#39;__PUBLIC__/lanrenjiekuan/back.jpg&#39;); "> </div><?php endif; ?>
-<?php if(empty($user['back_img']) != true): ?><div class="picimg" style="background-color:rgb(255, 255, 255);background-image:url('http://gao.test.com:8888/Upload/image/20190611/20190611085102_97254.png'); "> </div><?php endif; ?>
+<?php if(empty($user['back_img']) != true): ?><div class="picimg" style="background-color:rgb(255, 255, 255);background-image:url('<?php echo ($user['back_img']); ?>'); "> </div><?php endif; ?>
     <div class="qlogo-Box">
     <span class="qspan"></span>
     <div class="qContent-login">
         <h2 class="ft qChina"></h2>
         <p class="ft qEnglish"></p>
         <div class="bj2">
-            <?php if(empty($user['logourl']) != true): ?><img class="loginlogo" src="http://gao.test.com:8888/Upload/image/20190611/20190611163435_13990.png"><?php endif; ?>
+            <?php if(empty($user['logourl']) != true): ?><img class="loginlogo" src="<?php echo ($user['logourl']); ?>"><?php endif; ?>
             <?php if(empty($user['logourl']) == true): ?><img class="loginlogo" src="__PUBLIC__/lanrenjiekuan/loginlogo.png"><?php endif; ?>
-            <form id="loginform" method="post" action="#">
+
                 <div class="qinfo-logo">
                     <table>
                         <tbody><tr>
@@ -55,7 +55,7 @@
                         </tr>
                         </tbody></table>
                 </div>
-            </form>
+           
         </div>
     </div>
     <p class="banbenhao">版本号V6.2.7</p>

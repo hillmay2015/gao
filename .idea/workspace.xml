@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4497af5d-4f01-4d5e-94f6-e22cda159f7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Home/Index_index2.html" afterPath="$PROJECT_DIR$/App/Tpl/Home/Index_index2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/213901e6ee126fa8c46b7fb0e081f7ba.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/213901e6ee126fa8c46b7fb0e081f7ba.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/77989dfbd37b8a2d561af9709c7bb863.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/77989dfbd37b8a2d561af9709c7bb863.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Tpl/Home/Index_index1.html" afterPath="$PROJECT_DIR$/App/Tpl/Home/Index_index1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Cache/Home/9e63b5b94212d313dc6c6ae5532f2b64.php" afterPath="$PROJECT_DIR$/Temp/Cache/Home/9e63b5b94212d313dc6c6ae5532f2b64.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/Logs/19_06_11.log" afterPath="$PROJECT_DIR$/Temp/Logs/19_06_11.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,11 +39,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index_index2.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index_index2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="52" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="9" />
+              <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index_index1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="51" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="109" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -131,13 +139,13 @@
         <option value="$PROJECT_DIR$/Public/moban/style.css" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/User_pdlist.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Home/IndexAction.class.php" />
-        <option value="$PROJECT_DIR$/App/Tpl/Home/Index_index1.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Admin/UserAction.class.php" />
         <option value="$PROJECT_DIR$/App/Tpl/Admin/Admin_edit.html" />
         <option value="$PROJECT_DIR$/App/Lib/Action/Home/UserAction.class.php" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/User_manager.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/Info_index1.html" />
         <option value="$PROJECT_DIR$/App/Tpl/Home/Index_index2.html" />
+        <option value="$PROJECT_DIR$/App/Tpl/Home/Index_index1.html" />
       </list>
     </option>
   </component>
@@ -474,12 +482,12 @@
       <workItem from="1560231295779" duration="380000" />
       <workItem from="1560240497641" duration="2212000" />
       <workItem from="1560243311208" duration="1133000" />
-      <workItem from="1560259928999" duration="787000" />
+      <workItem from="1560259928999" duration="939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48091000" />
+    <option name="totallyTimeSpent" value="48243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
@@ -727,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="21" column="49" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="109" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Lib/Action/Admin/UserAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -841,7 +842,15 @@
     <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="52" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="9" />
+          <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Tpl/Home/Index_index1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="109" selection-end-column="9" />
           <folding />
         </state>
       </provider>
