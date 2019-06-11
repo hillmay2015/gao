@@ -42,7 +42,7 @@
                 <?php if($json["tongguolv"] == 1 ): ?><td><?php $chenggongrenci = round($chenggongrenci/$vo['zhuceshu']*100 , 2); echo $chenggongrenci; ?> %
                     </td><?php endif; ?>
                 <?php if($json["caozuo"] == 1 ): ?><td>
-                        <a href="<?php echo C('cfg_app'); ?>/Home/User/pdlist/data_from/<?php echo ($adminlogin['username']); ?>/stratdate/<?php echo ($vo["addtime"]); ?>">查看</a>
+                        <a href="#">查看</a>
                     </td><?php endif; ?>
                 </td>
             </tr><?php endforeach; endif; else: echo "" ;endif; ?>

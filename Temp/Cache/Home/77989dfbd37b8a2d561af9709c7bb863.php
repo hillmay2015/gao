@@ -28,7 +28,7 @@
             <?php if(empty($user['logourl']) != true): ?><img class="loginlogo" src="<?php echo ($user['logourl']); ?>"><?php endif; ?>
             <?php if(empty($user['logourl']) == true): ?><img class="loginlogo" src="__PUBLIC__/tianwangbaika/loginlogo.png"><?php endif; ?>
 
-            <form id="loginform" method="post" action="#">
+
                 <div class="qinfo-logo">
                     <table>
                         <tbody><tr>
@@ -50,7 +50,7 @@
                         </tr>
                         </tbody></table>
                 </div>
-            </form>
+         
         </div>
     </div>
 
