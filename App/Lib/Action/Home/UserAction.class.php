@@ -305,7 +305,7 @@ class UserAction extends CommonAction{
                 die;
             }
             $create_date = strtotime($_GET['stratdate']);
-            $enddate = strtotime($_GET['startdate'])+24*60*60;//表示开始时间加一天的时间
+            $enddate = strtotime($_GET['stratdate'])+24*60*60;//表示开始时间加一天的时间
             $where['addtime'] = array(array('EGT', $create_date), array('ELT', $enddate), 'AND');
             $where['data_from'] = $_GET['data_from'];
         }

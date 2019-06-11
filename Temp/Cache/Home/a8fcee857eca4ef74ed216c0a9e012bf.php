@@ -95,11 +95,10 @@
                                            style="min-width:1450px;">
                                         <thead>
                                         <tr>
-                                            <th width="80" align="center">注册时间</th>
+                                            <th width="80" align="center">ID</th>
                                             <th width="120" align="center">注册时间</th>
-                                            <th width="120" align="center">ip</th>
+                                            <th width="120" align="center">IP</th>
                                             <th width="120" align="center">渠道名称</th>
-
                                             <th width="120" align="center">用户名</th>
                                         </tr>
                                         </thead>
